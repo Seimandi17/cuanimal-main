@@ -1,0 +1,61 @@
+/* SIDEBAR */
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: var(--primary-color) ;
+  padding-top: 20px;
+}
+.sidebar-header{
+  margin-bottom: 20px;
+}
+.sidebar-footer{
+  margin: auto;
+}
+.sidebar a {
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+}
+.sidebar a:hover {
+  background-color:var(--secondary-color);
+}
+.sidebar-logoIcon{
+  width: 30px;
+  margin-right: 5px ;
+}
+.sideBar-active{
+  background-color: var(--secondary-color);
+}
+/* Ajustar el contenido principal para que no quede detrás del sidebar */
+.content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+/* DASHBOARD */
+.dashboard-card{
+  width: 10rem;
+  height: 14rem;
+  border: 1px solid #343a40;
+  background-color: transparent;
+  color: #343a40;
+}
+/* Logo */
+.logoImg {
+  width: 3rem;
+  margin: auto;
+}
+
+/* GENERAL COMPONENTES */
+
+.sectionModuls{
+  flex-grow: 1;
+  padding: 20px;
+}
