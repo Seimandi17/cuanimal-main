@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getData, setData } from "../store/provider/storeProvider";
-import { Form } from "../components/proveedor/form";
 import FormValues from "../services/FormValues";
+import { FormProveedor } from "../../shared/proveedor/FormProveedor";
 
 export default function Provider() {
   const [providers, setProviders] = useState([]);
@@ -40,7 +40,7 @@ export default function Provider() {
       </p>
       <div class="collapse" id="collapseExample">
         <div class="card card-body">
-          <Form callback={handleSubmit} />
+          <FormProveedor callback={handleSubmit} />
         </div>
       </div>
       <table className="table">

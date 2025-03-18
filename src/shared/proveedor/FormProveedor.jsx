@@ -1,4 +1,4 @@
-export function Form({callback}) {
+export function FormProveedor({callback}) {
   return (
     <form onSubmit={callback}>
       <div className="form-floating mb-3">

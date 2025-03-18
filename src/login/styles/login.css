@@ -1,0 +1,13 @@
+.login-layout{
+  height: 100vh;
+}
+
+.form-login{
+  width: 400px;
+}
+
+.header-login{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

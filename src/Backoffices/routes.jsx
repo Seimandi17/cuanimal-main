@@ -9,6 +9,6 @@ export const RoutesBackoffices = [
       <Route index element={<Home />} />
       <Route path="proveedor" element={<Provider />} />
       <Route path="clientes" element={<Client />} />
-      <Route path="*" element={<h1> 404 </h1>} />
+      <Route path="/backoffice/*" element={<h1> 404 </h1>} />
     </Route>
 ];
