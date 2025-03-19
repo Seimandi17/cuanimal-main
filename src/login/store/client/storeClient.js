@@ -2,7 +2,7 @@ import { BASE_URL } from "../../../config/config";
 
 export async function getData() {
   try {
-    const response = await fetch(`${BASE_URL}/proveedor`);
+    const response = await fetch(`${BASE_URL}/users`);
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
@@ -16,8 +16,7 @@ export async function getData() {
 
 export async function setData(formData) {
   try {
-    console.log(formData);
-    const response = await fetch(`${BASE_URL}/proveedor`, {
+    const response = await fetch(`${BASE_URL}/users`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -37,7 +36,7 @@ export async function setData(formData) {
 
 export async function updateData(formData, id) {
   try {
-    const response = await fetch(`${BASE_URL}/proveedor/${id}`, {
+    const response = await fetch(`${BASE_URL}/users/${id}`, {
       method: "PUT",
       body: JSON.stringify(formData),
       headers: {
@@ -57,7 +56,7 @@ export async function updateData(formData, id) {
 
 export async function deleteData(id) {
   try {
-    const response = await fetch(`${BASE_URL}/proveedor/${id}`, {
+    const response = await fetch(`${BASE_URL}/users/${id}`, {
       method: "DELETE",
     });
 

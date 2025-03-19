@@ -5,101 +5,101 @@ export function FormProveedor({callback}) {
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="nameProvider"
           placeholder="Nombre"
           name="name"
         />
-        <label htmlFor="floatingInput">Nombre</label>
+        <label htmlFor="nameProvider">Nombre</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="lastNameProvider"
           placeholder="Apellido"
           name="lastName"
         />
-        <label htmlFor="floatingInput">Apellido</label>
+        <label htmlFor="lastNameProvider">Apellido</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="phoneProvider"
           placeholder="Celular"
           name="phone"
         />
-        <label htmlFor="floatingInput">Celular</label>
+        <label htmlFor="phoneProvider">Celular</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="email"
           className="form-control"
-          id="floatingInput"
+          id="emailProvider"
           placeholder="Email"
           name="email"
         />
-        <label htmlFor="floatingInput">Email</label>
+        <label htmlFor="emailProvider">Email</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="addressProvider"
           placeholder="Dirección"
           name="address"
         />
-        <label htmlFor="floatingInput">Dirección</label>
+        <label htmlFor="addressProvider">Dirección</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="servicesProvider"
           placeholder="Servicio"
           name="services"
         />
-        <label htmlFor="floatingInput">Servicio</label>
+        <label htmlFor="servicesProvider">Servicio</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="availabilityProvider"
           placeholder="Disponibilidad"
           name="availability"
         />
-        <label htmlFor="floatingInput">Disponibilidad</label>
+        <label htmlFor="availabilityProvider">Disponibilidad</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="certificationProvider"
           placeholder="Certificación"
           name="certification"
         />
-        <label htmlFor="floatingInput">Certificación</label>
+        <label htmlFor="certificationProvider">Certificación</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="descriptionProvider"
           placeholder="Descripción"
           name="description"
         />
-        <label htmlFor="floatingInput">Descripción</label>
+        <label htmlFor="descriptionProvider">Descripción</label>
       </div>
       <div className="form-floating mb-3">
         <input
           type="text"
           className="form-control"
-          id="floatingInput"
+          id="evidenceProvider"
           placeholder="Evidencia"
           name="evidence"
         />
-        <label htmlFor="floatingInput">Evidencia</label>
+        <label htmlFor="evidenceProvider">Evidencia</label>
       </div>
       <button className="btn btn-primary" type="submit"> Enviar Solicitud </button>
       {/* <div className="form-floating">

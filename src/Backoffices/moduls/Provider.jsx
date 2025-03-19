@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getData, setData } from "../store/provider/storeProvider";
-import FormValues from "../services/FormValues";
 import { FormProveedor } from "../../shared/proveedor/FormProveedor";
+import FormValues from "../../shared/services/FormValues";
 
 export default function Provider() {
   const [providers, setProviders] = useState([]);

@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
 import { FormProveedor } from "../shared/proveedor/FormProveedor";
 import { FormUsuario } from "./components/FormUsuario";
+import { setData } from "./store/provider/storeProvider";
+import FormValues from "../shared/services/FormValues";
+
+const handleSubmit = (event) => {
+ const values = new FormValues(event);
+ setData(values);
+}
 
 export function Register() {
   return (
@@ -40,7 +47,7 @@ export function Register() {
             <FormUsuario />
           </div>
           <div className="collapse" id="collapsProveedor">
-            <FormProveedor />
+            <FormProveedor callback={handleSubmit} />
           </div>
         </section>
       </div>
