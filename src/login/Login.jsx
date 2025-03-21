@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
+import { loginUser, logoutUser } from "./store/client/storeClient";
+import FormValues from "../shared/services/FormValues";
 
 export function Login() {
+
+  const handleSubmit = (event) => {
+   const values = new FormValues(event);
+   loginUser(values);
+  }
+  const handleLogout = () => {
+    logoutUser();
+   }
   return (
     <>
       <header className="header-login">
         <Link to="/">Inicio</Link>
         <h1>Iniciar sesion</h1>
+        <button onClick={handleLogout}> Logout </button>
       </header>
-      <form className="form-login">
+      <form onSubmit={handleSubmit} className="form-login">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             Email
