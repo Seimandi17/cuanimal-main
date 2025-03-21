@@ -5,6 +5,6 @@ export default function Contact () {
 export const PageInfo = {
   path: "contacto",
   title: "Contacto",
-  logo: "",
+  logo: "/public/logos/contact.svg",
   count: 20,
 };

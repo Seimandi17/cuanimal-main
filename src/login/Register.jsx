@@ -13,40 +13,37 @@ export function Register() {
   return (
     <>
       <header className="header-login">
-        <Link to="/">Inicio </Link> 
-        <Link to="/Login"> Login</Link>
-
-        <main className="d-flex justify-content-center gap-2 mb-1">
-          <h1>Registrarse como:</h1>
-          <button
-            className="btn btn-primary"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseUser"
-            href="#collapseExample"
-            aria-expanded="false"
-            aria-controls="collapse"
-            type="button"
-          >
-            Usuario
-          </button>
-          <button
-            className="btn btn-primary"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapsProveedor"
-            aria-expanded="false"
-            aria-controls="collapse"
-          >
-            Proveedor
-          </button>
-        </main>
+        <Link to="/" className="brand-link">
+          <img src="public/Cuanimal.png" alt="Logo" className="brand-logo" />
+          <span className="brand-text">Cuanimal</span>
+        </Link>
       </header>
-      <div className="d-flex flex-column aling-center w-100 gap-1">
+        <main className="main-register gap-2 mb-2">
+          <h1 className="fw-bold">Registrarse como:</h1>
+          <div className="r-user">
+            <div className="card card-option" data-bs-toggle="collapse" data-bs-target="#collapseUser">
+              <img src="public/avatar2.png" alt="Usuario" className="avatar-img" />
+              <h5 className="mt-2">Usuario</h5>
+            </div>
+
+            <div className="card card-option" data-bs-toggle="collapse" data-bs-target="#collapseProveedor">
+              <img src="public/avatar2.png" alt="Proveedor" className="avatar-img" />
+              <h5 className="mt-2">Proveedor</h5>
+            </div>
+          </div>
+          <hr className="divider" />
+          <Link to="/Login">
+            <button to type="button" className="button-register">
+              Acceder
+            </button>
+          </Link>
+        </main>
+      <div className="d-flex flex-column aling-center w-100 gap-2">
         <section className="d-flex justify-content-center">
           <div className="collapse" id="collapseUser">
             <FormUsuario />
           </div>
-          <div className="collapse" id="collapsProveedor">
+          <div className="collapse" id="collapseProveedor">
             <FormProveedor callback={handleSubmit} />
           </div>
         </section>

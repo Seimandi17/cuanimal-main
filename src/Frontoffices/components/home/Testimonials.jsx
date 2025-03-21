@@ -4,21 +4,21 @@ const testimonials = [
     name: 'Ana García',
     location: 'Madrid',
     text: 'Gracias a Cuanimal encontré un hotel donde aceptaron a mi perro sin problemas. ¡Vacaciones perfectas!',
-    image: '../public/avatar-1.jpg'
+    image: '../public/img/avatar-1.jpg'
   },
   {
     id: 2,
     name: 'Carlos Martínez',
     location: 'Barcelona',
     text: 'Encontrar un cuidador para mi gato nunca había sido tan fácil. El servicio fue excelente y mi mascota estuvo feliz.',
-    image: '../public/avatar-3.jpg'
+    image: '../public/img/avatar-3.jpg'
   },
   {
     id: 3,
     name: 'Laura Sánchez',
     location: 'Valencia',
     text: 'El transporte que contraté a través de Cuanimal fue muy profesional. Mi perro llegó tranquilo y sin estrés a nuestro destino.',
-    image: '/public/avatar-2.jpeg'
+    image: '/public/img/avatar-2.jpeg'
   }
 ];
 

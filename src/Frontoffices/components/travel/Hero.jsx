@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Search, Hotel, MapPin, Car, Calendar } from 'lucide-react';
+import { Search, MapPin, Car, Calendar, Users } from 'lucide-react';
 
 const Hero = () => {
-  const [activeTab, setActiveTab] = useState('alojamiento');
+  const [activeTab, setActiveTab] = useState('destinos');
 
   return (
     <div className="bg-light py-5">
@@ -11,27 +10,27 @@ const Hero = () => {
         <div className="row align-items-center">
           
           {/* Sección de Texto y Buscador */}
-          <div className="col-lg-6">
-            <h1 className="fw-bold display-5 mb-3 text-dark">
-              Encuentra todo lo que tu mascota necesita
+          <div className="col-lg-7">  {/* Se amplía esta columna */}
+            <h1 className="fw-bold display-4 mb-3 text-dark">  
+              Explora destinos pet-friendly con tu mascota
             </h1>
-            <p className="lead text-secondary" style={{ maxWidth: '500px' }}>
-              Alojamiento, transporte, cuidadores y más servicios pet-friendly en un solo lugar.
+            <p className="lead text-secondary" style={{ maxWidth: '600px' }}> 
+              Encuentra experiencias de viaje adaptadas para mascotas: playas, montañas, guarderías, restaurantes pet-friendly y más.
             </p>
 
             {/* Tabs */}
-            <div className="d-flex gap-2 mt-4">
+            <div className="d-flex gap-3 mt-4">
               {[
-                { id: 'alojamiento', label: 'Alojamiento', icon: <Hotel size={20} /> },
-                { id: 'cuidadores', label: 'Cuidadores', icon: <MapPin size={20} /> },
-                { id: 'transporte', label: 'Transporte', icon: <Car size={20} /> }
+                { id: 'destinos', label: 'Destinos', icon: <MapPin size={20} /> },
+                { id: 'servicios', label: 'Servicios', icon: <Car size={20} /> },
+                { id: 'alojamiento', label: 'Alojamiento', icon: <Users size={20} /> }
               ].map(tab => (
                 <button
                   key={tab.id}
-                  className={`btn d-flex align-items-center gap-2 px-3 py-2 rounded-3 fw-semibold ${
+                  className={`btn d-flex align-items-center gap-2 px-4 py-3 rounded-3 fw-semibold ${
                     activeTab === tab.id ? 'btn-primary text-white shadow-sm' : 'btn-light text-dark'
                   }`}
-                  style={{ transition: 'all 0.2s ease-in-out' }}
+                  style={{ transition: 'all 0.2s ease-in-out', fontSize: '1rem' }}  
                   onClick={() => setActiveTab(tab.id)}
                 >
                   {tab.icon} {tab.label}
@@ -40,7 +39,7 @@ const Hero = () => {
             </div>
 
             {/* Caja de Búsqueda */}
-            <div className="bg-white rounded-4 shadow p-4 mt-4" style={{ width: '100%', maxWidth: '700px' }}>
+            <div className="bg-white rounded-4 shadow-lg p-4 mt-4" style={{ width: '100%', maxWidth: '750px' }}>
               <div className="row g-3">
                 <div className="col-md-4">
                   <label className="form-label text-muted">¿Dónde?</label>
@@ -48,7 +47,7 @@ const Hero = () => {
                     <span className="input-group-text bg-light"><MapPin size={18} /></span>
                     <input 
                       type="text" 
-                      placeholder="¿A dónde viajas con tu mascota?" 
+                      placeholder="Ciudad o destino" 
                       className="form-control border-0"
                     />
                   </div>
@@ -60,7 +59,7 @@ const Hero = () => {
                     <span className="input-group-text bg-light"><Calendar size={18} /></span>
                     <input 
                       type="text" 
-                      placeholder="Fechas de viaje" 
+                      placeholder="dd/mm/aaaa" 
                       className="form-control border-0"
                     />
                   </div>
@@ -68,8 +67,21 @@ const Hero = () => {
 
                 <div className="col-md-4">
                   <label className="form-label text-muted">¿Con quién?</label>
+                  <div className="input-group">
+                    <span className="input-group-text bg-light"><Users size={18} /></span>
+                    <input 
+                      type="text" 
+                      placeholder="Adultos, Mascotas" 
+                      className="form-control border-0"
+                    />
+                  </div>
+                </div>
+
+                <div className="col-12 d-flex align-items-center">
+                  <input type="checkbox" id="transporte" className="me-2" />
+                  <label htmlFor="transporte" className="text-muted">Solicitar transporte</label>
                   <button 
-                    className="btn btn-primary w-100 d-flex align-items-center justify-content-center rounded-3 fw-semibold"
+                    className="btn btn-primary ms-auto px-4 py-2"
                     style={{ transition: 'transform 0.2s ease-in-out' }}
                     onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                     onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
@@ -82,7 +94,7 @@ const Hero = () => {
           </div>
 
           {/* Sección de Imágenes */}
-          <div className="col-lg-6 d-none d-lg-block">
+          <div className="col-lg-5 d-none d-lg-block">
             <div className="image-grid">
               <img src="/img/mascota-viaja.jpg" alt="Mascota viajando" className="grid-item large" />
               <img src="/img/mascota-parque.jpg" alt="Mascota en un parque" className="grid-item medium" />
@@ -101,26 +113,27 @@ const Hero = () => {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: auto;
-            gap: 10px;
+            gap: 8px;
+            margin-left: 30px; /* Mueve las imágenes más hacia la derecha */
           }
 
           .grid-item {
             width: 100%;
             object-fit: cover;
-            border-radius: 20px;
+            border-radius: 15px;
           }
 
           .large {
             grid-column: span 2;
-            height: 180px;
+            height: 160px;
           }
 
           .medium {
-            height: 140px;
+            height: 120px;
           }
 
           .small {
-            height: 90px;
+            height: 80px;
           }
         `}
       </style>

@@ -1,13 +1,147 @@
+body{
+  background-color: #D6E6F2;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Elimina el subrayado */
+  color: #0079c5; /* Color del texto */
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.brand-logo {
+  width: 40px; /* Tamaño del logo */
+  height: auto;
+  margin-right: 3px; /* Espacio entre el logo y el texto */
+}
+
+.brand-text {
+  font-size: 30px;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif
+}
 .login-layout{
   height: 100vh;
 }
 
 .form-login{
   width: 400px;
+  border: solid 1px #dadada;
+  padding: 20px;
+  margin: 30px;
+  background-color: white;
+  border-radius: 16px;
+  display: flex;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
 }
 
 .header-login{
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.recuperar{
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 6px;
+}
+
+.r-user {
+  display: flex;
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;  /* Centra verticalmente */
+  gap: 40px; /* Mayor separación entre las cards */
+  margin-top: 20px;
+}
+
+.accesoRegistro{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.divider {
+  width: 100%;
+  max-width: 400px;
+  height: 2px;
+  background-color: #ddd;
+  border: none;
+  margin: 20px auto;
+}
+
+.button-register {
+  width: 400px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #0D6EFD;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+.button-register:hover {
+  background: #0b61e1;
+}
+
+.button-login {
+    width: 100%;
+    gap: 8px;
+    background-color: #0D6EFD;
+    color: white;
+    font-weight: bold;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background 0.2s ease;
+    margin-top: 8px;
+}
+
+.button-login:hover {
+    background: #0b61e1;
+}
+.main-register{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px #dadada;
+  border-radius: 16px;
+  background-color: white;
+  padding: 30px;
+  text-align: center;
+  gap: 15px;
+}
+
+.card-option {
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el contenido de la card */
+  justify-content: center;
+  width: 180px; /* Tamaño más adecuado para mayor balance */
+  height: 180px; /* Hace que la card sea más cuadrada */
+}
+
+.card-option:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px; /* Espacio entre la imagen y el texto */
 }
