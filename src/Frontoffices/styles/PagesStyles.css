@@ -1,39 +1,79 @@
-/* SIDEBAR */
-.sidebarFront {
-  width: 200px;
-  min-width: 50px;
-  max-width: 240px;
-  height: 90vh;
-  margin-top: 55px;
-  position: absolute;
-  left: 0;
-  background-color: var(--light-color) ;
-}
-.sidebarFront-header{
-  margin-bottom: 20px;
-}
-.sidebarFront-footer{
-  margin: auto;
-}
-.sidebarFront a {
-  width: 100%;
-  padding: 5px;
-  text-decoration: none;
-  font-size: 15px;
-  color: var(--text-primary-color);
-  display: block;
-}
-.sidebarFront a:hover {
-  background-color:var(--secondary-color);
-}
-.sidebarFront-logoIcon{
-  width: 25px;
-  margin-right: 5px;
-}
-.sideBarFront-active{
-  background-color: var(--secondary-color);
+/* Asegura que la Navbar siempre esté fija */
+.header-navbar {
+  height: 60px;
+  z-index: 1050; /* Para que siempre esté por encima */
 }
 
-.header-navbar{
-  background-color: var(--primary-color);
+/* Fondo opaco cuando la Sidebar está abierta */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease-in-out;
+  z-index: 1040;
+}
+
+/* Mostrar el fondo opaco cuando la Sidebar está abierta */
+.offcanvas.show ~ .sidebar-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ajustes de la Sidebar */
+.sidebarFront {
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 60px; /* Ajuste para alinearla con la Navbar */
+}
+
+/* Estilo de los enlaces de la Sidebar */
+.sidebarFront a {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  border-radius: 6px;
+}
+
+.sidebarFront a:hover {
+  background-color: #f5f5f5;
+  border-radius: 6px;
+}
+
+.sidebarFront-logoIcon {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.sideBarFront-active {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+.offcanvas.offcanvas-start {
+  --bs-offcanvas-width: 240px; /* Ajusta el ancho si es necesario */
+  top: 0;
+  left: 0;
+  transition: transform 0.2s ease-in-out !important; /* Ajustar velocidad de transición */
+  border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+  transform: translateX(-100%);
+  background-color: white; /* Ajustar al mismo color que la Navbar */
+  border-top: none !important; /* Eliminar cualquier borde superior */
+  box-shadow: none !important; /* Evita sombras que separen */
+}
+
+/* Ajustar la Navbar para que no tenga separación */
+.navbar {
+  background-color: white; /* Asegurar que el fondo sea igual al de la Sidebar */
+  border-bottom: none !important; /* Eliminar cualquier borde inferior */
+  box-shadow: none !important; /* Evitar sombras */
+  margin-bottom: 10px;
 }

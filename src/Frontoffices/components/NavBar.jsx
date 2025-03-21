@@ -1,21 +1,35 @@
 import { RxHamburgerMenu } from "react-icons/rx";
 
 export default function NavBar() {
-
   return (
-    <nav className="header-navbar navbar" style={{backgroundColor:"white"}}>
-      <div className="header-navbar-container container-fluid">
-        <section className="menu-brand">
-          <a className="navbar-brand"> <RxHamburgerMenu data-bs-toggle="offcanvas" href="#offcanvasSideBar" role="button" aria-controls="offcanvasSideBar" /> </a>
-          <a className="navbar-brand" href="Inicio"> 
-          <img src="src/assets/logos/Cuanimal.png" alt="cuanimal" width="100" height="auto"/>
+    <nav className="header-navbar navbar bg-white fixed-top shadow-sm">
+      <div className="header-navbar-container container-fluid d-flex justify-content-between align-items-center">
+        
+        {/* Sección del menú y logo */}
+        <section className="menu-brand d-flex align-items-center">
+          {/* Botón de menú hamburguesa */}
+          <button 
+            className="navbar-toggler border-0 bg-transparent" 
+            type="button" 
+            data-bs-toggle="offcanvas" 
+            data-bs-target="#offcanvasSideBar" 
+            aria-controls="offcanvasSideBar"
+          >
+            <RxHamburgerMenu size={24} />
+          </button>
+          
+          {/* Logo */}
+          <a className="navbar-brand ms-2" href="Inicio">
+            <img src="src/assets/logos/Cuanimal.png" alt="Cuanimal" width="100" height="auto" />
           </a>
         </section>
+
+        {/* Botón de inicio de sesión */}
         <form className="d-flex" role="search">
-          <a className="btn btn-light" style={{borderColor:"black", fontWeight:"500"}} href="Login" role="button">Iniciar Sesión</a>
+          <a className="btn btn-light border-dark fw-medium" href="Login" role="button">Iniciar Sesión</a>
         </form>
       </div>
     </nav>
-
-  );
+  
+);
 }

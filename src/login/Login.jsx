@@ -8,20 +8,22 @@ export function Login() {
    const values = new FormValues(event);
    loginUser(values);
   }
-  const handleLogout = () => {
-    logoutUser();
-   }
+  // const handleLogout = () => {
+  //   logoutUser();
+  //  }
   return (
     <>
       <header className="header-login">
-        <Link to="/">Inicio</Link>
-        <h1>Iniciar sesion</h1>
-        <button onClick={handleLogout}> Logout </button>
+      <Link to="/" className="brand-link">
+        <img src="public/Cuanimal.png" alt="Logo" className="brand-logo" />
+        <span className="brand-text">Cuanimal</span>
+      </Link>
       </header>
       <form onSubmit={handleSubmit} className="form-login">
         <div className="mb-3">
-          <label htmlFor="exampleInputEmail1" className="form-label">
-            Email
+          <h1 className="text-center fw-bold">Acceso</h1>
+          <label htmlFor="exampleInputEmail1" className="form-label text-muted">
+            Dirección de correo electrónico
           </label>
           <input
             type="email"
@@ -35,7 +37,7 @@ export function Login() {
             </div> */}
         </div>
         <div className="mb-3">
-          <label htmlFor="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label text-muted">
             Contraseña
           </label>
           <input
@@ -56,13 +58,15 @@ export function Login() {
             Mantener Sesión
           </label>
         </div>
-        <div className="d-flex gap-2">
-          <button type="submit" className="btn btn-outline-primary">
-            Iniciar
+        <div className="accesoRegistro">
+          <button type="submit" className="button-login">
+            Acceso
           </button>
+          <a href="#" className="recuperar text-center">¿Has olvidado tu contraseña?</a>
+          <hr className="divider" />
           <Link to="/Registrar">
-            <button to type="button" className="btn btn-outline-primary">
-              Registrarme
+            <button to type="button" className="button-login">
+              Crear una cuenta nueva
             </button>
           </Link>
         </div>
