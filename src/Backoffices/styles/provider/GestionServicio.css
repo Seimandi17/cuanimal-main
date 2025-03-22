@@ -1,0 +1,91 @@
+/* -------------------- Tarjeta del Servicio -------------------- */
+.servicio-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .servicio-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .servicio-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  /* -------------------- Contenido -------------------- */
+  .servicio-card .card-body {
+    padding: 16px;
+  }
+  
+  .servicio-card .card-body h5 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* -------------------- Inputs en modo edición -------------------- */
+  .servicio-card input[type="text"],
+  .servicio-card input[type="number"],
+  .servicio-card textarea {
+    font-size: 15px;
+    padding: 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+  
+  .servicio-card textarea {
+    resize: vertical;
+  }
+  
+  /* -------------------- Botones -------------------- */
+  .servicio-card .btn {
+    font-weight: 500;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .servicio-card .btn-primary {
+    background-color: #0079c5;
+    border: none;
+  }
+  
+  .servicio-card .btn-primary:hover {
+    background-color: #005ea3;
+  }
+  
+  .servicio-card .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .servicio-card .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  .servicio-card .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  .servicio-card .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  
+  /* -------------------- Dropdown (3 puntos) -------------------- */
+  .dropdown-toggle {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .dropdown-toggle span {
+    font-size: 22px;
+    color: #555;
+  }
+  

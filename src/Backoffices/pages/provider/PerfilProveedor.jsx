@@ -3,7 +3,7 @@ export default function PerfilProveedor() {
   }
 
   export const PageInfo = {
-    path: "perfil",
+    path: "proveedor/perfil",
     title: "Mi Perfil",
     homeStats: "Mi Perfil",
     logo: "",

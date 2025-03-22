@@ -1,0 +1,43 @@
+.lista-servicios {
+    padding: 30px 20px;
+    /*background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;*/
+  }
+  
+  .lista-servicios h3 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .lista-servicios .card-servicio {
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .lista-servicios .card-servicio:hover {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lista-servicios .card-servicio h5 {
+    font-weight: bold;
+    color: #0079c5;
+    margin-bottom: 10px;
+  }
+  
+  .lista-servicios .card-servicio p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .lista-servicios .card-servicio .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    margin-right: 8px;
+  }
+  

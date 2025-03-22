@@ -3,7 +3,7 @@ export default function Configuracion() {
   }
 
   export const PageInfo = {
-    path: "configuracion",
+    path: "admin/configuracion",
     title: "Configuración",
     homeStats: "Configuración",
     logo: "",

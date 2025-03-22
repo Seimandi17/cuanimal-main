@@ -3,7 +3,7 @@ export default function ServiciosOfrecidos() {
   }
 
   export const PageInfo = {
-    path: "servicios",
+    path: "admin/servicios",
     title: "Servicios ofrecidos",
     homeStats: "Servicios ofrecidos",
     logo: "",

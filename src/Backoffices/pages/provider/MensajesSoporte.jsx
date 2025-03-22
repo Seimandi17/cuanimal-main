@@ -3,7 +3,7 @@ export default function MensajesSoporte() {
   }
 
   export const PageInfo = {
-    path: "mensajes",
+    path: "proveedor/mensajes",
     title: "Mensajes de Soporte",
     homeStats: "Mensajes de Soporte",
     logo: "",

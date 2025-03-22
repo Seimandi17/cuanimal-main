@@ -1,0 +1,61 @@
+.proveedores-page {
+  padding: 30px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.proveedores-container {
+  width: 100%;
+  max-width: none; 
+  padding: 20px 40px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section-header-servicios {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.section-header-servicios h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+}
+
+.section-header-servicios .btn-agregar {
+  background-color: #0079c5;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.section-header-servicios .btn-agregar:hover {
+  background-color: #005fa3;
+}
+
+.lista-servicios h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.lista-servicios .text-muted {
+  color: #888;
+  font-style: italic;
+}
