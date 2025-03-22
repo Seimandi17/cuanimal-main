@@ -15,7 +15,7 @@ export function Login() {
     <>
       <header className="header-login">
       <Link to="/" className="brand-link">
-        <img src="public/Cuanimal.png" alt="Logo" className="brand-logo" />
+        <img src="/Cuanimal.png" alt="Logo" className="brand-logo" />
         <span className="brand-text">Cuanimal</span>
       </Link>
       </header>

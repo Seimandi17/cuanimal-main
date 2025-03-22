@@ -1,4 +1,6 @@
 import { RxHamburgerMenu } from "react-icons/rx";
+import logo from '../../assets/logos/Cuanimal.png'; // ajusta el path relativo según tu estructura
+
 
 export default function NavBar() {
   return (
@@ -19,14 +21,14 @@ export default function NavBar() {
           </button>
           
           {/* Logo */}
-          <a className="navbar-brand ms-2" href="Inicio">
-            <img src="src/assets/logos/Cuanimal.png" alt="Cuanimal" width="100" height="auto" />
+          <a className="navbar-brand ms-2" href="/">
+            <img src={logo} alt="Cuanimal" width="100" height="auto" />
           </a>
         </section>
 
         {/* Botón de inicio de sesión */}
         <form className="d-flex" role="search">
-          <a className="btn btn-light border-dark fw-medium" href="Login" role="button">Iniciar Sesión</a>
+          <a className="btn btn-light border-dark fw-medium" href="/Login" role="button">Iniciar Sesión</a>
         </form>
       </div>
     </nav>
