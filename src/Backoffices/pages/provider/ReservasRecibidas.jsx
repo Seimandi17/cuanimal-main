@@ -3,7 +3,7 @@ export default function ReservasRecibidas() {
   }
 
   export const PageInfo = {
-    path: "reservaså",
+    path: "proveedor/reservas",
     title: "Reservas Recibidas",
     homeStats: "Reservas Recibidas",
     logo: "",

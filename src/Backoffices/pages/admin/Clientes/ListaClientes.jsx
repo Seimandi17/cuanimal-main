@@ -3,7 +3,7 @@ export default function ListaClientes() {
   }
 
   export const PageInfo = {
-    path: "lista-cliente",
+    path: "admin/clientes/lista-cliente",
     title: "Lista de Clientes",
     homeStats: "Lista de Clientes",
     logo: "",

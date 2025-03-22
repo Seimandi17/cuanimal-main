@@ -4,7 +4,7 @@ export default function DetalleCliente() {
 
 
   export const PageInfo = {
-    path: "detalle-cliente",
+    path: "admin/clientes/:id",
     title: "Detalle Cliente",
     homeStats: "Detalle Cliente",
     logo: "",

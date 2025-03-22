@@ -3,7 +3,7 @@ export default function DetalleProveedor() {
   }
 
   export const PageInfo = {
-    path: "detalles-de-proveedores",
+    path: "admin/proveedores/:id",
     title: "Detalles de Proveedores",
     homeStats: "Detalles de Proveedores",
     logo: "",
