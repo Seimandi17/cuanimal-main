@@ -48,6 +48,6 @@ export const PageInfo = {
   path: "viajar-con-ellos",
   title: "Viajar con Ellos",
   homeStats: "Explora destinos pet-friendly",
-  logo: "/public/logos/travel.svg",
+  logo: "/logos/travel.svg",
   count: 10 // Número opcional
 };

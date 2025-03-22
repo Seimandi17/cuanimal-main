@@ -6,10 +6,17 @@ import '../proveedores/styles/Proveedores.css';
 
 export default function Proveedores() {
   const [servicios, setServicios] = useState([]);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+
+  // Función para alternar la visibilidad del formulario
+  const toggleFormulario = () => {
+    setMostrarFormulario(!mostrarFormulario);
+  };
 
   // Agregar servicio a la lista
   const agregarServicio = (nuevoServicio) => {
     setServicios([...servicios, nuevoServicio]);
+    setMostrarFormulario(false); // Ocultar el formulario después de agregar el servicio
   };
 
   // Eliminar servicio
@@ -17,36 +24,21 @@ export default function Proveedores() {
     setServicios(servicios.filter((_, i) => i !== index));
   };
 
-  // Actualizar un servicio existente
-  const actualizarServicio = (id, servicioActualizado) => {
-    setServicios(
-      servicios.map((servicio, index) =>
-        index === id ? servicioActualizado : servicio
-      )
-    );
-  };
-
   return (
-    <>
-    <div className="proveedores-container">
-      {/* Sección Hero */}
-      <HeroSection />
+    <div className='proveedores-page'>
+      <div className="proveedores-container">
+        {/* Sección Hero */}
+        <HeroSection onShowForm={toggleFormulario} />
 
-      {/* Contenido de Gestión de Servicios */}
-      <div className="container py-5">
-        <h2 className="text-center fw-bold mb-4">Gestión de Servicios</h2>
-
-        {/* Formulario para agregar servicios */}
-        <FormAgregarServicio onAgregar={agregarServicio} />
+        {/* Mostrar el formulario solo cuando el estado es verdadero */}
+        {mostrarFormulario && <FormAgregarServicio onAgregar={agregarServicio} />}
 
         {/* Lista de servicios cargados */}
-        <ListaServicios servicios={servicios} onActualizar={actualizarServicio} onEliminar={eliminarServicio} />
-
+        <ListaServicios servicios={servicios} onEliminar={eliminarServicio} />
       </div>
     </div>
-    </>
   );
-};
+}
 
 
 
@@ -54,6 +46,6 @@ export const PageInfo = {
   path: "proveedores",
   title: "Proveedores",
   homeStats: "Ofrece tus servicios",
-  logo: "/public/logos/travel.svg",
+  logo: "/logos/supplier.svg",
   count: 10 // Número opcional
 };

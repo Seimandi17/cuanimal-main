@@ -6,6 +6,7 @@ import Travel from "./pages/Travel";
 import Transport from "./pages/Transport";
 import Proveedores from "./pages/Proveedores"
 
+
 export const RoutesFrontoffices = [
     <Route key={'/frontoffices'} path="/" element={<PageLayout/>}>
       <Route index element={<Home />} />

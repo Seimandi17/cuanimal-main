@@ -1,125 +1,119 @@
-.proveedores-container {
+.proveedores-page {
     background-color: #f8f9fa;
     min-height: 100vh;
   }
   
-  /* Ajustes para el contenido */
-  .container {
+  .proveedores-page .container {
     max-width: 1100px;
     margin: auto;
   }
   
-  /* Espaciado para la sección de servicios */
-  .py-5 {
+  .proveedores-page .py-5 {
     padding: 50px 0;
   }
   
-.hero-proveedores {
-    background: linear-gradient(to right, #4A90E2, #56CCF2);
+  .proveedores-page .hero-proveedores {
+    background-color: #4A90E2;
     color: white;
     padding: 80px 0;
     text-align: center;
   }
   
-  .hero-proveedores .container {
+  .proveedores-page .hero-proveedores .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     max-width: 1100px;
     margin: auto;
+    flex-direction: row;
+    align-items: stretch;
   }
   
-  .hero-content {
+  .proveedores-page .hero-content {
     max-width: 550px;
     text-align: left;
   }
   
-  .hero-content h1 {
+  .proveedores-page .hero-content h1 {
     font-size: 2.5rem;
     margin-bottom: 15px;
   }
   
-  .hero-content p {
+  .proveedores-page .hero-content p {
     font-size: 1.2rem;
     margin-bottom: 20px;
   }
   
-  .hero-buttons {
+  .proveedores-page .hero-buttons {
     display: flex;
     gap: 15px;
   }
   
-  .hero-image img {
+  .proveedores-page .hero-image img {
     max-width: 400px;
     border-radius: 10px;
   }
   
   @media (max-width: 768px) {
-    .hero-proveedores .container {
+    .proveedores-page .hero-proveedores .container {
       flex-direction: column;
       text-align: center;
     }
   
-    .hero-content {
+    .proveedores-page .hero-content {
       max-width: 100%;
     }
   
-    .hero-buttons {
+    .proveedores-page .hero-buttons {
       justify-content: center;
     }
   
-    .hero-image img {
+    .proveedores-page .hero-image img {
       max-width: 90%;
       margin-top: 20px;
     }
   }
-  /* Contenedor principal */
-.servicios-container {
+  
+  .proveedores-page .servicios-container {
     max-width: 800px;
     margin: auto;
     padding: 20px;
   }
   
-  /* Estilo de cada tarjeta de servicio */
-  .card {
+  .proveedores-page .card {
     border-radius: 12px;
     transition: all 0.3s ease-in-out;
   }
   
-  .card:hover {
+  .proveedores-page .card:hover {
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
   }
   
-  /* Títulos */
-  h3 {
+  .proveedores-page h3 {
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 20px;
   }
   
-  /* Botones */
-  .btn {
+  .proveedores-page .btn {
     border-radius: 8px;
     padding: 8px 12px;
   }
   
-  .btn-warning {
+  .proveedores-page .btn-warning {
     background-color: #ffc107;
     color: #000;
   }
   
-  .btn-danger {
+  .proveedores-page .btn-danger {
     background-color: #dc3545;
   }
   
-  .btn-success {
+  .proveedores-page .btn-success {
     background-color: #28a745;
   }
   
-  /* Formulario de edición */
-  input,
-  textarea {
+  .proveedores-page input,
+  .proveedores-page textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -127,34 +121,34 @@
     border-radius: 6px;
   }
   
-  textarea {
+  .proveedores-page textarea {
     resize: none;
     height: 80px;
   }
   
-  /* Responsividad */
   @media (max-width: 768px) {
-    .servicios-container {
+    .proveedores-page .servicios-container {
       padding: 15px;
     }
   
-    h3 {
+    .proveedores-page h3 {
       font-size: 1.5rem;
     }
   
-    .btn {
+    .proveedores-page .btn {
       width: 100%;
       margin-bottom: 8px;
     }
   }
-  .form-container {
+  
+  .proveedores-page .form-container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 30px;
   }
   
-  .form-agregar-servicio {
+  .proveedores-page .form-agregar-servicio {
     width: 100%;
     max-width: 600px;
     background: #fff;
@@ -163,21 +157,23 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .form-agregar-servicio h2 {
+  .proveedores-page .form-agregar-servicio h2 {
     margin-bottom: 20px;
   }
   
-  .form-agregar-servicio .form-control {
+  .proveedores-page .form-agregar-servicio .form-control {
     border-radius: 6px;
     padding: 10px;
   }
   
-  .form-agregar-servicio button {
+  .proveedores-page .form-agregar-servicio button {
     margin-top: 15px;
     padding: 10px;
     font-weight: bold;
   }
- .portada-servicio{
+  
+  .proveedores-page .portada-servicio {
     width: 300px;
     height: auto;
- }  
+  }
+  

@@ -5,6 +5,6 @@ export default function Transport () {
 export const PageInfo = {
   path: "Transporte-de-mascotas",
   title: "Transporte de Mascotas",
-  logo: "/public/logos/transport.svg",
+  logo: "/logos/transport.svg",
   count: 20,
 };

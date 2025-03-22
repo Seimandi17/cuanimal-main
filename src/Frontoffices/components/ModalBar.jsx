@@ -1,7 +1,7 @@
 import { modules } from "../services/ModulsExport";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-
+import logo from '../../assets/logos/Cuanimal_logo.png';
 export default function ModalBar() {
   
   const path = useLocation().pathname;
@@ -30,7 +30,7 @@ export default function ModalBar() {
         <div className="offcanvas-body">
           <section className="sidebarFront-nav flex-grow-1">
             <Link className={currentPath === "/" ? "sideBarFront-active" : ""} to="/">
-              <img className="sidebarFront-logoIcon" src="/src/assets/logos/Cuanimal_logo.png" alt="Logo" />
+              <img className="sidebarFront-logoIcon" src={logo} alt="Logo" />
               Inicio
             </Link>
             {modules.map((mod, index) => (
