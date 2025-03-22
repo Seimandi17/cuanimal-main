@@ -55,13 +55,13 @@
     box-shadow: 0 0 6px rgba(0, 121, 197, 0.2);
   }
   
-  /* Textarea ocupará toda la fila */
+
   .form-agregar-servicio textarea {
     grid-column: span 2;
     min-height: 100px;
   }
   
-  /* Botón de enviar ocupa todo el ancho */
+
   .form-agregar-servicio button {
     grid-column: span 2;
     padding: 12px;
@@ -80,8 +80,7 @@
   .col-span-2 {
     grid-column: span 2;
   }
-  
-  /* Responsive para móviles */
+
   @media (max-width: 768px) {
     .form-agregar-servicio {
       grid-template-columns: 1fr;

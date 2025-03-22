@@ -1,0 +1,33 @@
+.ubicacion-negocio {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+  
+  .ubicacion-negocio h4 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .ubicacion-negocio .form-label {
+    font-weight: 600;
+    color: #444;
+    font-size: 15px;
+    margin-bottom: 6px;
+  }
+  
+  .ubicacion-negocio input {
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .ubicacion-negocio input:focus {
+    border-color: #0D6EFD;
+    outline: none;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.15);
+  }
+  

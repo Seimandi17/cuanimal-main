@@ -1,4 +1,4 @@
-/* -------------------- Tarjeta del Servicio -------------------- */
+
 .servicio-card {
     height: 100%;
     display: flex;
@@ -17,7 +17,7 @@
     border-radius: 12px 12px 0 0;
   }
   
-  /* -------------------- Contenido -------------------- */
+
   .servicio-card .card-body {
     padding: 16px;
   }
@@ -26,8 +26,7 @@
     font-size: 18px;
     font-weight: 600;
   }
-  
-  /* -------------------- Inputs en modo edición -------------------- */
+
   .servicio-card input[type="text"],
   .servicio-card input[type="number"],
   .servicio-card textarea {
@@ -42,8 +41,7 @@
   .servicio-card textarea {
     resize: vertical;
   }
-  
-  /* -------------------- Botones -------------------- */
+
   .servicio-card .btn {
     font-weight: 500;
     font-size: 14px;
@@ -77,7 +75,7 @@
     background-color: #5a6268;
   }
   
-  /* -------------------- Dropdown (3 puntos) -------------------- */
+
   .dropdown-toggle {
     background: none !important;
     border: none !important;
