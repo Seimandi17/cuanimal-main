@@ -1,0 +1,65 @@
+.mi-perfil-page {
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 30px 40px;
+    min-height: 100vh;
+  }
+  
+  .perfil-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .perfil-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+  
+  .seccion-titulo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+
+  .perfil-container button {
+    padding: 10px 16px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .perfil-container button.btn-primary {
+    background-color: #0D6EFD;
+    color: white;
+  }
+  
+  .perfil-container button.btn-primary:hover {
+    background-color: #0b5ed7;
+  }
+  
+  .perfil-container button.btn-outline-secondary {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #555;
+  }
+  
+  .perfil-container button.btn-outline-secondary:hover {
+    background-color: #f3f3f3;
+  }
+  

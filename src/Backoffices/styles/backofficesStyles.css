@@ -71,3 +71,7 @@
   overflow-y: auto;
   background-color: #f9f9f9;
 }
+.dashboard-stats{
+  display: flex;
+  flex-wrap: wrap;
+}

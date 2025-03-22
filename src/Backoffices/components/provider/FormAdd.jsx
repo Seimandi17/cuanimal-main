@@ -84,7 +84,7 @@ const FormAgregarServicio = ({ onAgregar }) => {
   </div>
 )}
 
-{/* Nombre y tipo */}
+
 <div>
   <label className="form-label">Nombre del Servicio</label>
   <input type="text" name="nombre" value={servicio.nombre} onChange={handleChange} className="form-control" required />
@@ -100,13 +100,13 @@ const FormAgregarServicio = ({ onAgregar }) => {
   </select>
 </div>
 
-{/* Descripción (ocupa 2 columnas) */}
+
 <div className="col-span-2">
   <label className="form-label">Descripción</label>
   <textarea name="descripcion" value={servicio.descripcion} onChange={handleChange} className="form-control" required />
 </div>
 
-{/* Precio y contacto */}
+
 <div>
   <label className="form-label">Precio (€)</label>
   <input type="number" name="precio" value={servicio.precio} onChange={handleChange} className="form-control" required />
@@ -117,7 +117,7 @@ const FormAgregarServicio = ({ onAgregar }) => {
   <input type="text" name="contacto" value={servicio.contacto} onChange={handleChange} className="form-control" placeholder="Teléfono, email o red social" />
 </div>
 
-{/* Subtítulo ubicación */}
+
 <h4 className="col-span-2 fw-bold mt-4">Ubicación</h4>
 
 <div>
@@ -135,16 +135,16 @@ const FormAgregarServicio = ({ onAgregar }) => {
   <input type="text" name="ciudad" value={servicio.ciudad} onChange={handleChange} className="form-control" required />
 </div>
 
-{/* Dirección exacta (ocupa 2 columnas) */}
+
 <div className="col-span-2">
   <label className="form-label">Dirección Exacta</label>
   <input type="text" name="direccion" value={servicio.direccion} onChange={handleChange} className="form-control" required />
 </div>
 
-{/* Subtítulo imágenes */}
+
 <h4 className="col-span-2 fw-bold mt-4">Imágenes</h4>
 
-{/* Vista previa portada */}
+
 {previewPortada && (
   <div className="col-span-2 text-center">
     <img src={previewPortada} alt="Vista previa" className="img-fluid rounded shadow-sm" style={{ maxHeight: '200px' }} />
@@ -161,7 +161,7 @@ const FormAgregarServicio = ({ onAgregar }) => {
   <input type="file" name="imagenes" onChange={handleFileChange} className="form-control" accept="image/*" multiple required />
 </div>
 
-{/* Botón (ocupa todo el ancho) */}
+
 <div className="col-span-2">
   <button type="submit" className="btn btn-primary w-100">Agregar Servicio</button>
 </div>

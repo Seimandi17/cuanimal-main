@@ -1,0 +1,27 @@
+.portada-negocio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  
+  .portada-negocio h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .portada-preview {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+  }
+  
+  .portada-preview img {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
