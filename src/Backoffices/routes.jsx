@@ -28,7 +28,7 @@ export const RoutesBackoffices = [
     <Route path="proveedor/mis-servicios" element={<MisServicios />} />
     <Route path="proveedor/pedidos" element={<Pedidos />} />
     <Route path="proveedor/mi-perfil" element={<PerfilProveedor />} />
-    <Route path="proveedor/mensajes" element={<MensajesSoporte />} />
+    <Route path="proveedor/soporte" element={<MensajesSoporte />} />
     <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
   </Route>
 ];
