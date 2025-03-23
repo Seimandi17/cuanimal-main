@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import '../../styles/provider/GestionServicio.css'
+import { deleteData, updateData } from "../../store/products/storeProducts";
 
 const CampoEditable = ({ tipo = "text", valor, modoEdicion, onChange }) => {
   return modoEdicion ? (
@@ -20,11 +21,11 @@ const CampoEditable = ({ tipo = "text", valor, modoEdicion, onChange }) => {
   );
 };
 
-const GestionServicio = ({ servicio, onActualizar, onEliminar }) => {
+const GestionServicio = ({ servicio }) => {
   const [modoEdicion, setModoEdicion] = useState(false);
-  const [nombre, setNombre] = useState(servicio.nombre);
-  const [descripcion, setDescripcion] = useState(servicio.descripcion);
-  const [precio, setPrecio] = useState(servicio.precio);
+  const [nombre, setNombre] = useState(servicio.name);
+  const [descripcion, setDescripcion] = useState(servicio.description);
+  const [precio, setPrecio] = useState(servicio.price);
 
   const handleGuardar = () => {
     if (!nombre.trim() || !descripcion.trim() || precio <= 0) {
@@ -33,17 +34,24 @@ const GestionServicio = ({ servicio, onActualizar, onEliminar }) => {
     }
 
     const servicioActualizado = { ...servicio, nombre, descripcion, precio };
-    onActualizar(servicio.id ?? Date.now(), servicioActualizado); 
+
+    const data = {
+      name: servicioActualizado.nombre,
+      description:  servicioActualizado.descripcion,
+      price: servicioActualizado.precio,
+    };
+
+    updateData(data, servicio.id);
     setModoEdicion(false);
   };
 
   return (
     <div className="card servicio-card border rounded shadow-sm">
       {/* Imagen de portada */}
-      {servicio.portada && (
+      {servicio.coverImg && (
         <img
-          src={URL.createObjectURL(servicio.portada)}
-          alt={servicio.nombre}
+          src={`http://localhost:8000/storage/${servicio.coverImg}`}
+          alt={servicio.name}
           className="card-img-top"
         />
       )}
@@ -64,7 +72,7 @@ const GestionServicio = ({ servicio, onActualizar, onEliminar }) => {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item onClick={() => setModoEdicion(true)}>Editar</Dropdown.Item>
-              <Dropdown.Item onClick={() => onEliminar(servicio.id)}>Eliminar</Dropdown.Item>
+              <Dropdown.Item onClick={() => deleteData(servicio.id)}>Eliminar</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </div>

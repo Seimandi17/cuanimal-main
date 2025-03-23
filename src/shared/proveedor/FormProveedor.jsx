@@ -53,8 +53,8 @@ export function FormProveedor({ callback }) {
                   <input 
                     type="text" 
                     id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     placeholder="Tu nombre"
                     required 
