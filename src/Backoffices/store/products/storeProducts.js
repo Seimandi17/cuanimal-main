@@ -1,6 +1,5 @@
 import { BASE_URL } from "../../../config/config";
 
-// Función para verificar autenticación y permisos
 const checkAuthAndRole = (requiredRole) => {
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
@@ -16,12 +15,11 @@ const checkAuthAndRole = (requiredRole) => {
   return token;
 };
 
-// Obtener lista de proveedores (GET /proveedor)
 export async function getData() {
   try {
     const token = checkAuthAndRole(1);
 
-    const response = await fetch(`${BASE_URL}/proveedor`, {
+    const response = await fetch(`${BASE_URL}/products`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +32,7 @@ export async function getData() {
       const errorData = await response.json();
       throw new Error(
         errorData.message ||
-          `Error al obtener los proveedores: ${response.status}`
+          `Error al obtener los productses: ${response.status}`
       );
     }
 
@@ -46,26 +44,31 @@ export async function getData() {
   }
 }
 
-// Crear un nuevo proveedor (POST /proveedor)
 export async function setData(formData) {
   try {
-    // Verificar autenticación y permisos (solo administradores)
     const token = checkAuthAndRole(1);
 
-    const response = await fetch(`${BASE_URL}/proveedor`, {
+    // Obtener el token CSRF
+    await fetch("http://localhost:8000/sanctum/csrf-cookie", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    // Enviar la solicitud POST
+    const response = await fetch(`${BASE_URL}/products`, {
       method: "POST",
-      body: JSON.stringify(formData),
+      body: formData, 
       headers: {
-        "Content-Type": "application/json",
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
       },
+      credentials: "include",
     });
 
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(
-        errorData.message || `Error al crear el proveedor: ${response.status}`
+        errorData.message || `Error al crear el producto: ${response.status}`
       );
     }
 
@@ -77,13 +80,16 @@ export async function setData(formData) {
   }
 }
 
-// Actualizar un proveedor existente (PUT /proveedor/{id})
 export async function updateData(formData, id) {
   try {
-    // Verificar autenticación y permisos (solo administradores)
     const token = checkAuthAndRole(1);
 
-    const response = await fetch(`${BASE_URL}/proveedor/${id}`, {
+    await fetch("http://localhost:8000/sanctum/csrf-cookie", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    const response = await fetch(`${BASE_URL}/products/${id}`, {
       method: "PUT",
       body: JSON.stringify(formData),
       headers: {
@@ -91,13 +97,15 @@ export async function updateData(formData, id) {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
       },
+      credentials: "include",
+
     });
 
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(
         errorData.message ||
-          `Error al actualizar el proveedor: ${response.status}`
+          `Error al actualizar el products: ${response.status}`
       );
     }
 
@@ -109,13 +117,11 @@ export async function updateData(formData, id) {
   }
 }
 
-// Eliminar un proveedor (DELETE /proveedor/{id})
 export async function deleteData(id) {
   try {
-    // Verificar autenticación y permisos (solo administradores)
     const token = checkAuthAndRole(1);
 
-    const response = await fetch(`${BASE_URL}/proveedor/${id}`, {
+    const response = await fetch(`${BASE_URL}/products/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -127,8 +133,7 @@ export async function deleteData(id) {
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(
-        errorData.message ||
-          `Error al eliminar el proveedor: ${response.status}`
+        errorData.message || `Error al eliminar el products: ${response.status}`
       );
     }
 

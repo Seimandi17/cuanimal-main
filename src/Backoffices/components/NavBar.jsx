@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { modules } from "../services/ModulsExport";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { logoutUser } from "../../login/store/client/storeClient";
 
 export default function NavBar() {
   const path = useLocation().pathname;
@@ -9,6 +10,10 @@ export default function NavBar() {
   useEffect(() => {
     setCurrentPath(path);
   }, [path]);
+
+ const handleLogout = () => {
+    logoutUser();
+   }
 
   return (
     <div className="sidebar d-flex flex-column">
@@ -38,7 +43,7 @@ export default function NavBar() {
       </section>
 
       <footer className="sidebar-footer mb-3">
-        <button className="btn btn-outline-warning">Cerrar sesión</button>
+        <button className="btn btn-outline-warning" onClick={handleLogout}>Cerrar sesión</button>
       </footer>
     </div>
   );

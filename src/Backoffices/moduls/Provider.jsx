@@ -9,7 +9,9 @@ export default function Provider() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData();
-      setProviders(data);
+      if (data) {
+        setProviders(data);
+      }
     };
     fetchData();
   }, []);
@@ -28,18 +30,18 @@ export default function Provider() {
       <h1> Provider page</h1>
       <p class="d-inline-flex gap-1">
         <button
-          class="btn btn-primary"
+          className="btn btn-primary"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#collapseExample"
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-         Agregar Proveedor
+          Agregar Proveedor
         </button>
       </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
+      <div className="collapse" id="collapseExample">
+        <div className="card card-body">
           <FormProveedor callback={handleSubmit} />
         </div>
       </div>
@@ -61,25 +63,25 @@ export default function Provider() {
           </tr>
         </thead>
         <tbody>
-          {providers.map((provider, index) => {
-            return (
-              <tr key={index}>
-                <th scope="row">{index}</th>
-                <td>{provider.name}</td>
-                <td>{provider.lastName}</td>
-                <td>{provider.phone}</td>
-                <td>{provider.email}</td>
-                <td>{provider.address}</td>
-                <td>{provider.services}</td>
-                <td>{provider.availability}</td>
-                <td>{provider.cretification}</td>
-                <td>{provider.description}</td>
-                <td>{provider.evidence}</td>
-                <td>{provider.status ? 'Aprobado':'Pendiente'}</td>
-                
-              </tr>
-            );
-          })}
+          {providers &&
+            providers?.map((provider, index) => {
+              return (
+                <tr key={index}>
+                  <th scope="row">{index}</th>
+                  <td>{provider.name}</td>
+                  <td>{provider.lastName}</td>
+                  <td>{provider.phone}</td>
+                  <td>{provider.email}</td>
+                  <td>{provider.address}</td>
+                  <td>{provider.services}</td>
+                  <td>{provider.availability}</td>
+                  <td>{provider.cretification}</td>
+                  <td>{provider.description}</td>
+                  <td>{provider.evidence}</td>
+                  <td>{provider.status ? "Aprobado" : "Pendiente"}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </section>
