@@ -15,6 +15,19 @@ export default function MiPerfil() {
     direccion: ''
   });
 
+  const [datosNegocio, setDatosNegocio] = useState({
+    nombre: '',
+    categoria: '',
+    descripcion: '',
+    telefono: '',
+    horario: '',
+    sitioWeb: '',
+    redes: {
+      instagram: '',
+      facebook: ''
+    }
+  });
+
   return (
     <div className="mi-perfil-page sectionModuls">
       <div className="perfil-container">
@@ -25,7 +38,7 @@ export default function MiPerfil() {
         </section>
 
         <section className="perfil-section">
-          <DatosNegocio />
+          <DatosNegocio datos={datosNegocio} setDatos={setDatosNegocio} />
         </section>
 
         <section className="perfil-section">

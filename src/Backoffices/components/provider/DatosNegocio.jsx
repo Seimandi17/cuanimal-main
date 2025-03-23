@@ -1,30 +1,20 @@
-import { useState } from "react";
 import "../../styles/provider/DatosNegocio.css";
 
-const DatosNegocio = () => {
-  const [negocio, setNegocio] = useState({
-    nombre: "",
-    categoria: "",
-    descripcion: "",
-    telefono: "",
-    horario: "",
-    sitioWeb: "",
-    redes: {
-      instagram: "",
-      facebook: "",
-    },
-  });
-
+const DatosNegocio = ({ datos, setDatos }) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
+
     if (name.includes("redes.")) {
       const red = name.split(".")[1];
-      setNegocio((prev) => ({
+      setDatos((prev) => ({
         ...prev,
-        redes: { ...prev.redes, [red]: value },
+        redes: {
+          ...prev.redes,
+          [red]: value,
+        },
       }));
     } else {
-      setNegocio({ ...negocio, [name]: value });
+      setDatos({ ...datos, [name]: value });
     }
   };
 
@@ -44,8 +34,8 @@ const DatosNegocio = () => {
           type="text"
           className="form-control"
           name="nombre"
-          value={negocio.nombre}
-          onChange={handleChange} 
+          value={datos.nombre}
+          onChange={handleChange}
           placeholder="PetCare Express"
         />
       </div>
@@ -55,9 +45,8 @@ const DatosNegocio = () => {
         <select
           name="categoria"
           className="form-select"
-          value={negocio.categoria}
+          value={datos.categoria}
           onChange={handleChange}
-          placeholder="Transporte de Mascotas"
         >
           <option value="Transporte de Mascotas">Transporte de Mascotas</option>
           <option value="Alojamiento">Alojamiento</option>
@@ -74,7 +63,7 @@ const DatosNegocio = () => {
         <textarea
           name="descripcion"
           className="form-control"
-          value={negocio.descripcion}
+          value={datos.descripcion}
           onChange={handleChange}
           rows="3"
           placeholder="Somos especialistas en el traslado seguro de mascotas."
@@ -88,7 +77,7 @@ const DatosNegocio = () => {
             type="text"
             name="telefono"
             className="form-control"
-            value={negocio.telefono}
+            value={datos.telefono}
             onChange={handleChange}
             placeholder="+34 600 123 456"
           />
@@ -100,7 +89,7 @@ const DatosNegocio = () => {
             type="text"
             name="horario"
             className="form-control"
-            value={negocio.horario}
+            value={datos.horario}
             onChange={handleChange}
             placeholder="Lunes a Viernes - 9:00 a 18:00"
           />
@@ -113,7 +102,7 @@ const DatosNegocio = () => {
           type="text"
           name="sitioWeb"
           className="form-control"
-          value={negocio.sitioWeb}
+          value={datos.sitioWeb}
           onChange={handleChange}
         />
       </div>
@@ -125,7 +114,7 @@ const DatosNegocio = () => {
           name="redes.instagram"
           className="form-control mb-2"
           placeholder="Instagram"
-          value={negocio.redes.instagram}
+          value={datos.redes.instagram}
           onChange={handleChange}
         />
         <input
@@ -133,7 +122,7 @@ const DatosNegocio = () => {
           name="redes.facebook"
           className="form-control"
           placeholder="Facebook"
-          value={negocio.redes.facebook}
+          value={datos.redes.facebook}
           onChange={handleChange}
         />
       </div>

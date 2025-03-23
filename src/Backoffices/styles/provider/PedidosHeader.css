@@ -1,16 +1,17 @@
-.perfil-header {
-    padding-bottom: 10px;
+.pedidos-header {
+    padding: 20px 0;
     border-bottom: 1px solid #ddd;
   }
   
-  .perfil-header h2 {
+  .pedidos-header h2 {
     font-weight: 700;
     color: #222;
     margin-bottom: 4px;
   }
   
-  .perfil-subtitulo {
+  .pedidos-header p {
     font-size: 15px;
     color: #666;
+    margin: 0;
   }
   
