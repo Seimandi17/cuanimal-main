@@ -15,7 +15,7 @@ export default function App() {
         <Route element={<ProtectedRoute />}>{RoutesFrontoffices}</Route>
 
         {/* Rutas protegidas solo para administradores (Backoffices) */}
-        <Route element={<ProtectedRoute requiredRole={1} />}>
+        <Route element={<ProtectedRoute requiredRole={[1,2]} />}>
           {RoutesBackoffices}
         </Route>
       </Routes>
