@@ -61,6 +61,6 @@ export const PageInfo = {
   path: "proveedor/mi-perfil",
   title: "Mi Perfil",
   homeStats: "Mi Perfil",
-  logo: "",
+  logo: "/icons-backoffice/perfil.svg",
   count: 1,
 };

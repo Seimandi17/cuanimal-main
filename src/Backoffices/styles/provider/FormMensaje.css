@@ -1,0 +1,38 @@
+.form-mensaje {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+  }
+  
+  .form-mensaje input {
+    flex-grow: 1;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out;
+  }
+  
+  .form-mensaje input:focus {
+    border-color: #0079c5;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 121, 197, 0.2);
+  }
+  
+  .form-mensaje button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    background-color: #0079c5;
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .form-mensaje button:hover {
+    background-color: #005fa3;
+  }
+  
