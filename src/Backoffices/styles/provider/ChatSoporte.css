@@ -1,0 +1,22 @@
+.chat-soporte {
+    height: 400px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f9fafb;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+  }
+  
+  .texto-vacio {
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    margin-top: 150px;
+  }
+  

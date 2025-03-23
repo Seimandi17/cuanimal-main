@@ -68,6 +68,6 @@ export const PageInfo = {
   path: "proveedor/pedidos",
   title: "Pedidos",
   homeStats: "Pedidos recibidos",
-  logo: "",
+  logo: "/icons-backoffice/pedidos.svg",
   count: 2,
 };
