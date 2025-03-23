@@ -43,7 +43,7 @@ export default function NavBar() {
       </section>
 
       <footer className="sidebar-footer mb-3">
-        <button className="btn btn-outline-warning" onClick={handleLogout}>Cerrar sesión</button>
+        <button className="btn btn-outline-warning mt-1" onClick={handleLogout}>Cerrar sesión</button>
       </footer>
     </div>
   );

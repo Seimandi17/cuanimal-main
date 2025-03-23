@@ -10,7 +10,7 @@ import DetalleProveedor from "./pages/admin/Proveedores/DetalleProveedor";
 import ServiciosOfrecidos from "./pages/admin/Servicios/ServiciosOfrecidos";
 import Configuracion from "./pages/admin/Configuracion";
 import MisServicios from "./pages/provider/MisServicios";
-import ReservasRecibidas from "./pages/provider/ReservasRecibidas";
+import Pedidos from "./pages/provider/Pedidos";
 import PerfilProveedor from "./pages/provider/PerfilProveedor";
 import MensajesSoporte from "./pages/provider/MensajesSoporte";
 
@@ -26,8 +26,8 @@ export const RoutesBackoffices = [
     <Route path="admin/servicios" element={<ServiciosOfrecidos />} />
     <Route path="admin/configuracion" element={<Configuracion />} />
     <Route path="proveedor/mis-servicios" element={<MisServicios />} />
-    <Route path="proveedor/reservas" element={<ReservasRecibidas />} />
-    <Route path="proveedor/perfil" element={<PerfilProveedor />} />
+    <Route path="proveedor/pedidos" element={<Pedidos />} />
+    <Route path="proveedor/mi-perfil" element={<PerfilProveedor />} />
     <Route path="proveedor/mensajes" element={<MensajesSoporte />} />
     <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
   </Route>

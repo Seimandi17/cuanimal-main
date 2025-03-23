@@ -1,0 +1,16 @@
+.perfil-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .perfil-header h2 {
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 4px;
+  }
+  
+  .perfil-subtitulo {
+    font-size: 15px;
+    color: #666;
+  }
+  

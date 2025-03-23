@@ -1,0 +1,18 @@
+.datos-personales-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+  }
+  
+  .datos-personales-card label {
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .datos-personales-card input:disabled {
+    background-color: #f4f4f4;
+  }
+  

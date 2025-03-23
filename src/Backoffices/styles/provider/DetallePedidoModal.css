@@ -1,0 +1,47 @@
+.detalle-pedido {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .detalle-pedido h5 {
+    color: #0079c5;
+  }
+  
+  .detalle-pedido p {
+    margin-bottom: 8px;
+  }
+  
+  .detalle-pedido .estado {
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    color: white;
+    display: inline-block;
+    text-transform: capitalize;
+    font-size: 14px;
+  }
+  
+  .estado.pendiente {
+    background-color: #ffc107; /* Amarillo */
+  }
+  
+  .estado.aceptado {
+    background-color: #198754; /* Verde */
+  }
+  
+  .estado.rechazado {
+    background-color: #dc3545; /* Rojo */
+  }
+  
+  .estado.completado {
+    background-color: #0d6efd; /* Azul */
+  }
+  
+  .detalle-pedido .mensaje {
+    font-style: italic;
+    background-color: #f8f9fa;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
