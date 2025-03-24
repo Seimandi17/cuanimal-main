@@ -35,7 +35,7 @@ export const PageInfo = {
   path: "clientes",
   title: "Página de cliente",
   homeStats: "Clientes registrados",
-  logo: "",
+  logo: "/icons-backoffice/clientes.svg",
   count: 20,
 };
 

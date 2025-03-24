@@ -1,0 +1,48 @@
+.tabla-validaciones {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+  }
+  
+  .tabla-validaciones table {
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 0.95rem;
+  }
+  
+  .tabla-validaciones thead th {
+    background-color: #f4f6f9;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .tabla-validaciones tbody td {
+    vertical-align: middle;
+  }
+  
+  .tabla-validaciones .btn {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .tabla-validaciones .btn-success {
+    background-color: #28a745;
+    border: none;
+  }
+  
+  .tabla-validaciones .btn-success:hover {
+    background-color: #218838;
+  }
+  
+  .tabla-validaciones .btn-danger {
+    background-color: #dc3545;
+    border: none;
+  }
+  
+  .tabla-validaciones .btn-danger:hover {
+    background-color: #c82333;
+  }
+  

@@ -13,12 +13,14 @@ import MisServicios from "./pages/provider/MisServicios";
 import Pedidos from "./pages/provider/Pedidos";
 import PerfilProveedor from "./pages/provider/PerfilProveedor";
 import MensajesSoporte from "./pages/provider/MensajesSoporte";
+import ValidarCuentas from "./pages/admin/ValidarCuentas";
 
 export const RoutesBackoffices = [
   <Route key="/backoffice" path="/backoffice" element={<BackofficesLayout />}>
     <Route index element={<Home />} />
     <Route path="clientes" element={<Client />} />
     <Route path="proveedor" element={<Provider />} />
+    <Route path="admin/validaciones" element={<ValidarCuentas />} />
     <Route path="admin/clientes/lista-cliente" element={<ListaClientes />} />
     <Route path="admin/clientes/:id" element={<DetalleCliente />} />
     <Route path="admin/proveedores/lista-proveedores" element={<ListaProveedores />} />

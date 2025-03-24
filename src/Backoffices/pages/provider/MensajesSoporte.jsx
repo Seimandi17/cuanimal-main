@@ -49,6 +49,6 @@ export const PageInfo = {
   path: "proveedor/soporte",
   title: "Mensajes / Soporte",
   homeStats: "Mensajes de Soporte",
-  logo: "",
+  logo: "/icons-backoffice/chat.svg",
   count: 0,
 };
