@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { setData } from "../../Backoffices/store/provider/storeProvider";
 
-export function FormProveedor({ callback }) {
+export function FormProveedor() {
   const [formData, setFormData] = useState({
-    firstName: "",
+    name: "",
     lastName: "",
     businessName: "",
+    password:"",
     email: "",
     phone: "",
-    serviceType: "",
+    category: "",
     description: "",
-    termsAccepted: false
+    termsAccepted: false,
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -27,7 +29,8 @@ export function FormProveedor({ callback }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Formulario enviado:", formData); // Depuración
-    setIsSubmitted(true); // Cambia el estado para mostrar el mensaje de éxito
+    setData(formData); 
+    setIsSubmitted(true);
   };
 
   return (
@@ -37,90 +40,112 @@ export function FormProveedor({ callback }) {
           // Mensaje de éxito
           <div className="success-message">
             <h2 className="text-center fw-bold mb-3">¡Solicitud Enviada!</h2>
-            <p className="text-center">Tu solicitud ha sido enviada correctamente. En breve será revisada por el administrador.</p>
-            <button className="btn btn-primary w-100 mt-3" onClick={() => navigate("/")}>
+            <p className="text-center">
+              Tu solicitud ha sido enviada correctamente. En breve será revisada
+              por el administrador.
+            </p>
+            <button
+              className="btn btn-primary w-100 mt-3"
+              onClick={() => navigate("/")}
+            >
               Volver al Inicio
             </button>
           </div>
         ) : (
           // Formulario de registro
           <>
-            <h2 className="text-center fw-bold mb-4">Registro de Proveedores</h2>
+            <h2 className="text-center fw-bold mb-4">
+              Registro de Proveedores
+            </h2>
             <form className="provider-form" onSubmit={handleSubmit}>
               <div className="form-grid">
                 <div>
                   <label htmlFor="firstName">Nombre</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     id="firstName"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Tu nombre"
-                    required 
+                    required
                   />
                 </div>
                 <div>
                   <label htmlFor="lastName">Apellidos</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     id="lastName"
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleChange}
                     placeholder="Tus apellidos"
-                    required 
+                    required
                   />
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="businessName">Nombre de la Empresa</label>
-                <input 
-                  type="text" 
-                  id="businessName"
-                  name="businessName"
-                  value={formData.businessName}
-                  onChange={handleChange}
-                  placeholder="Nombre de tu negocio"
-                  required 
-                />
+              <div className="form-grid">
+                <div>
+                  <label htmlFor="businessName">Nombre de la Empresa</label>
+                  <input
+                    type="text"
+                    id="businessName"
+                    name="businessName"
+                    value={formData.businessName}
+                    onChange={handleChange}
+                    placeholder="Nombre de tu negocio"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="password">Contraseña</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    placeholder="Tu contraseña"
+                    required
+                  />
+                </div>
               </div>
 
               <div className="form-grid">
                 <div>
                   <label htmlFor="email">Email</label>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="tu@email.com"
-                    required 
+                    required
                   />
                 </div>
 
                 <div>
                   <label htmlFor="phone">Teléfono</label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+34 600 000 000"
-                    required 
+                    required
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="serviceType">Tipo de Servicio</label>
-                <select 
-                  id="serviceType"
-                  name="serviceType"
-                  value={formData.serviceType}
+                <label htmlFor="category">Tipo de Servicio</label>
+                <select
+                  id="category"
+                  name="category"
+                  value={formData.category}
                   onChange={handleChange}
                   required
                 >
@@ -136,34 +161,55 @@ export function FormProveedor({ callback }) {
               </div>
 
               <div>
-                <label htmlFor="description">Descripción de tus Servicios</label>
-                <textarea 
+                <label htmlFor="description">
+                  Descripción de tus Servicios
+                </label>
+                <textarea
                   id="description"
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
                   rows="4"
                   placeholder="Describe brevemente los servicios que ofreces..."
-                  required 
+                  required
                 />
               </div>
 
               <div className="form-checkbox">
-                <input 
-                  type="checkbox" 
+                <input
+                  type="checkbox"
                   id="termsAccepted"
                   name="termsAccepted"
                   checked={formData.termsAccepted}
                   onChange={handleChange}
-                  required 
+                  required
                 />
                 <label htmlFor="termsAccepted">
-                  Acepto los <a href="/terminos" className="text-primary">términos y condiciones</a> y la <a href="/privacidad" className="text-primary">política de privacidad</a> de Cuanimal.
+                  Acepto los{" "}
+                  <a href="/terminos" className="text-primary">
+                    términos y condiciones
+                  </a>{" "}
+                  y la{" "}
+                  <a href="/privacidad" className="text-primary">
+                    política de privacidad
+                  </a>{" "}
+                  de Cuanimal.
                 </label>
               </div>
 
-              <button type="submit" className="btn btn-primary w-100 fw-semibold">Enviar Solicitud</button>
-              <button type="button" className="btn btn-outline-primary w-100 mt-2" onClick={() => navigate(-1)}>Volver Atrás</button>
+              <button
+                type="submit"
+                className="btn btn-primary w-100 fw-semibold"
+              >
+                Enviar Solicitud
+              </button>
+              <button
+                type="button"
+                className="btn btn-outline-primary w-100 mt-2"
+                onClick={() => navigate(-1)}
+              >
+                Volver Atrás
+              </button>
             </form>
           </>
         )}

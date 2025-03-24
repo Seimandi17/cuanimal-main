@@ -50,7 +50,7 @@ export async function getData() {
 export async function setData(formData) {
   try {
     // Verificar autenticación y permisos (solo administradores)
-    const token = checkAuthAndRole(1);
+    // const token = checkAuthAndRole(1);
 
     const response = await fetch(`${BASE_URL}/proveedor`, {
       method: "POST",
@@ -58,7 +58,6 @@ export async function setData(formData) {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: `Bearer ${token}`,
       },
     });
 
