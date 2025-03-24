@@ -6,6 +6,6 @@ export default function Configuracion() {
     path: "admin/configuracion",
     title: "Configuración",
     homeStats: "Configuración",
-    logo: "",
+    logo: "/icons-backoffice/configuracion.svg",
     count: 20,
   };

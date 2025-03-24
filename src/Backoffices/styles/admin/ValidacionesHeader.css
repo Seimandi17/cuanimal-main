@@ -1,0 +1,21 @@
+.validaciones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .titulo-header {
+    font-size: 24px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 5px;
+  }
+  
+  .descripcion-header {
+    font-size: 16px;
+    color: #666;
+  }
+  

@@ -28,6 +28,6 @@ export const PageInfo = {
   path: "proveedor/mis-servicios",
   title: "Mis Servicios",
   homeStats: "Mis Servicios",
-  logo: "/icons-backoffice/mis-servicios.svg",
+  logo: "/icons-backoffice/servicios.svg",
   count: 20,
 };

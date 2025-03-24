@@ -12,9 +12,8 @@ const ProtectedRoute = ({ requiredRole }) => {
         return <Navigate to="/login" replace />;
     }
 
-    if (requiredRole && (user.role_id !== requiredRole[0] || user.role_id !== requiredRole[1])) {
+    if (requiredRole && user.role_id !== requiredRole) {
         return <Navigate to="/unauthorized" replace />;
-        //GENERAR UN ELEMENTO PARA PAGINA SIN AUTORIZACION EN ROUTES
     }
 
     return <Outlet />;
