@@ -1,0 +1,21 @@
+.lista-productos-container {
+    padding-bottom: 3rem;
+  }
+  
+  .card {
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card-title {
+    color: #007bff;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+  }
+  

@@ -1,27 +1,40 @@
-import { Link } from "react-router-dom";
-import { loginUser, logoutUser } from "./store/client/storeClient";
+import { Link, useNavigate } from "react-router-dom";
+import { loginUser } from "./store/client/storeClient";
 import FormValues from "../shared/services/FormValues";
+import { useState } from "react";
 
 export function Login() {
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
 
-  const handleSubmit = (event) => {
-   const values = new FormValues(event);
-   loginUser(values);
-  }
-  // const handleLogout = () => {
-  //   logoutUser();
-  //  }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const values = new FormValues(event);
+    const result = await loginUser(values);
+
+    if (result.success) {
+      navigate("/"); // Redirige al Home
+    } else {
+      setError(result.message); // Muestra el mensaje de error
+    }
+  };
+
   return (
     <>
       <header className="header-login">
-      <Link to="/" className="brand-link">
-        <img src="/Cuanimal.png" alt="Logo" className="brand-logo" />
-        <span className="brand-text">Cuanimal</span>
-      </Link>
+        <Link to="/" className="brand-link">
+          <img src="/Cuanimal.png" alt="Logo" className="brand-logo" />
+          <span className="brand-text">Cuanimal</span>
+        </Link>
       </header>
+
       <form onSubmit={handleSubmit} className="form-login">
         <div className="mb-3">
           <h1 className="text-center fw-bold">Acceso</h1>
+
+          {/* Mensaje de error */}
+          {error && <div className="alert alert-danger text-center">{error}</div>}
+
           <label htmlFor="exampleInputEmail1" className="form-label text-muted">
             Dirección de correo electrónico
           </label>
@@ -29,13 +42,10 @@ export function Login() {
             type="email"
             className="form-control"
             id="exampleInputEmail1"
-            aria-describedby="emailHelp"
             name="email"
           />
-          {/* <div id="emailHelp" className="form-text">
-            We'll never share your email with anyone else.
-            </div> */}
         </div>
+
         <div className="mb-3">
           <label htmlFor="exampleInputPassword1" className="form-label text-muted">
             Contraseña
@@ -47,6 +57,7 @@ export function Login() {
             name="password"
           />
         </div>
+
         <div className="mb-3 form-check">
           <input
             type="checkbox"
@@ -58,14 +69,13 @@ export function Login() {
             Mantener Sesión
           </label>
         </div>
+
         <div className="accesoRegistro">
-          <button type="submit" className="button-login">
-            Acceso
-          </button>
+          <button type="submit" className="button-login">Acceso</button>
           <a href="#" className="recuperar text-center">¿Has olvidado tu contraseña?</a>
           <hr className="divider" />
           <Link to="/Registrar">
-            <button to type="button" className="button-login">
+            <button type="button" className="button-login">
               Crear una cuenta nueva
             </button>
           </Link>

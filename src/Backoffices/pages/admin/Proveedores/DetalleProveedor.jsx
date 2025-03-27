@@ -4,8 +4,8 @@ export default function DetalleProveedor() {
 
   export const PageInfo = {
     path: "admin/proveedores/:id",
-    title: "Detalles de Proveedores",
-    homeStats: "Detalles de Proveedores",
+    title: "Detalles",
+    homeStats: "Detalles",
     logo: "",
     count: 20,
   };
