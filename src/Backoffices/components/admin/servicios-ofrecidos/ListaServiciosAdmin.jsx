@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import "../../../styles/admin/ListaServiciosAdmin.css";
 import { changeStatus, deleteData } from "../../../store/products/storeProducts.js";
 import ToastAlert from "../../../components/common/ToastAlert";
+import { getData } from "../../../store/products/storeProducts";
 
 const ListaServiciosAdmin = () => {
   const [servicios, setServicios] = useState([]);
   const [filtro, setFiltro] = useState("");
   const [paginaActual, setPaginaActual] = useState(1);
   const porPagina = 5;
-
+  const [loading, setLoading] = useState(true);
+  
   const [servicioSeleccionado, setServicioSeleccionado] = useState(null);
 
   const [toast, setToast] = useState(null); // null o { type, message }
@@ -87,64 +89,20 @@ const ListaServiciosAdmin = () => {
   
 
   useEffect(() => {
-    const serviciosMock = [
-      {
-        id: 1,
-        name: "Paseo Canino",
-        description: "Paseo diario de 30 minutos por parques cercanos.",
-        price: 15,
-        provider: "Juan Pérez",
-        created_at: "2025-03-25",
-        status: "activo",
-      },
-      {
-        id: 2,
-        name: "Alojamiento Mascotas",
-        description: "Hospedaje con atención personalizada las 24hs.",
-        price: 25,
-        provider: "Ana Torres",
-        created_at: "2025-03-24",
-        status: "activo",
-      },
-      {
-        id: 3,
-        name: "Transporte",
-        description: "Trasladamos a tu mascota por todo el país.",
-        price: 50,
-        provider: "Carlos Gutiérrez",
-        created_at: "2025-03-20",
-        status: "activo",
-      },
-      {
-        id: 4,
-        name: "Adiestramiento",
-        description: "Entrenamiento básico para perros y gatos.",
-        price: 40,
-        provider: "Paula Méndez",
-        created_at: "2025-03-19",
-        status: "activo",
-      },
-      {
-        id: 5,
-        name: "Peluquería",
-        description: "Corte y baño profesional.",
-        price: 30,
-        provider: "Luis Romero",
-        created_at: "2025-03-18",
-        status: "activo",
-      },
-      {
-        id: 6,
-        name: "Veterinaria",
-        description: "Consulta veterinaria básica.",
-        price: 35,
-        provider: "María Flores",
-        created_at: "2025-03-17",
-        status: "activo",
-      },
-    ];
-
-    setServicios(serviciosMock);
+    const fetchServicios = async () => {
+      setLoading(true);
+      const data = await getData();
+  
+      if (Array.isArray(data)) {
+        setServicios(data);
+      } else {
+        setToast({ type: "error", message: data.message || "Error al cargar servicios." });
+      }
+  
+      setLoading(false);
+    };
+  
+    fetchServicios();
   }, []);
 
   const serviciosFiltrados = servicios.filter((servicio) => {
@@ -183,7 +141,13 @@ const ListaServiciosAdmin = () => {
           setPaginaActual(1);
         }}
       />
-
+      {loading ? (
+        <p className="loading-msg">Cargando servicios...</p>
+      ) : (
+        <>
+          {/* tabla y paginación van aquí */}
+        </>
+      )}
       <table className="tabla-servicios">
         <thead>
           <tr>
