@@ -148,4 +148,9 @@
   .badge-restringido {
     background-color: #dc3545; /* rojo */
   }
-    
+  .loading-msg {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    padding: 2rem;
+  }
