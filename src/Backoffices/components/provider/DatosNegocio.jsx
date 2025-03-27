@@ -1,12 +1,44 @@
 import "../../styles/provider/DatosNegocio.css";
+import { useEffect, useState } from "react";
+// import { updateBusinessData } from "../../store/..."; // si luego tenés un endpoint
 
-const DatosNegocio = ({ datos, setDatos }) => {
+const DatosNegocio = ({ perfil, setPerfil }) => {
+  const [formData, setFormData] = useState({
+    nombre: "",
+    categoria: "",
+    descripcion: "",
+    telefono: "",
+    horario: "",
+    sitioWeb: "",
+    redes: {
+      instagram: "",
+      facebook: "",
+    },
+  });
+
+  useEffect(() => {
+    if (perfil) {
+      setFormData({
+        nombre: perfil.business_name || "",
+        categoria: perfil.category || "",
+        descripcion: perfil.description || "",
+        telefono: perfil.phone || "",
+        horario: perfil.hours || "",
+        sitioWeb: perfil.website || "",
+        redes: {
+          instagram: perfil.instagram || "",
+          facebook: perfil.facebook || "",
+        },
+      });
+    }
+  }, [perfil]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
     if (name.includes("redes.")) {
       const red = name.split(".")[1];
-      setDatos((prev) => ({
+      setFormData((prev) => ({
         ...prev,
         redes: {
           ...prev.redes,
@@ -14,14 +46,33 @@ const DatosNegocio = ({ datos, setDatos }) => {
         },
       }));
     } else {
-      setDatos({ ...datos, [name]: value });
+      setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Información de negocio actualizada");
-    // guardar los cambios en backend
+
+    // Simulación de actualización local
+    const perfilActualizado = {
+      ...perfil,
+      business_name: formData.nombre,
+      category: formData.categoria,
+      description: formData.descripcion,
+      phone: formData.telefono,
+      hours: formData.horario,
+      website: formData.sitioWeb,
+      instagram: formData.redes.instagram,
+      facebook: formData.redes.facebook,
+    };
+
+    localStorage.setItem("user", JSON.stringify(perfilActualizado));
+    setPerfil(perfilActualizado);
+
+    alert("Información de negocio actualizada correctamente");
+
+    // 👉 Si tenés un endpoint, acá podrías hacer:
+    // await updateBusinessData(formData, perfil.id);
   };
 
   return (
@@ -34,7 +85,7 @@ const DatosNegocio = ({ datos, setDatos }) => {
           type="text"
           className="form-control"
           name="nombre"
-          value={datos.nombre}
+          value={formData.nombre}
           onChange={handleChange}
           placeholder="PetCare Express"
         />
@@ -45,7 +96,7 @@ const DatosNegocio = ({ datos, setDatos }) => {
         <select
           name="categoria"
           className="form-select"
-          value={datos.categoria}
+          value={formData.categoria}
           onChange={handleChange}
         >
           <option value="Transporte de Mascotas">Transporte de Mascotas</option>
@@ -63,7 +114,7 @@ const DatosNegocio = ({ datos, setDatos }) => {
         <textarea
           name="descripcion"
           className="form-control"
-          value={datos.descripcion}
+          value={formData.descripcion}
           onChange={handleChange}
           rows="3"
           placeholder="Somos especialistas en el traslado seguro de mascotas."
@@ -77,7 +128,7 @@ const DatosNegocio = ({ datos, setDatos }) => {
             type="text"
             name="telefono"
             className="form-control"
-            value={datos.telefono}
+            value={formData.telefono}
             onChange={handleChange}
             placeholder="+34 600 123 456"
           />
@@ -89,7 +140,7 @@ const DatosNegocio = ({ datos, setDatos }) => {
             type="text"
             name="horario"
             className="form-control"
-            value={datos.horario}
+            value={formData.horario}
             onChange={handleChange}
             placeholder="Lunes a Viernes - 9:00 a 18:00"
           />
@@ -102,7 +153,7 @@ const DatosNegocio = ({ datos, setDatos }) => {
           type="text"
           name="sitioWeb"
           className="form-control"
-          value={datos.sitioWeb}
+          value={formData.sitioWeb}
           onChange={handleChange}
         />
       </div>
@@ -114,7 +165,7 @@ const DatosNegocio = ({ datos, setDatos }) => {
           name="redes.instagram"
           className="form-control mb-2"
           placeholder="Instagram"
-          value={datos.redes.instagram}
+          value={formData.redes.instagram}
           onChange={handleChange}
         />
         <input
@@ -122,12 +173,14 @@ const DatosNegocio = ({ datos, setDatos }) => {
           name="redes.facebook"
           className="form-control"
           placeholder="Facebook"
-          value={datos.redes.facebook}
+          value={formData.redes.facebook}
           onChange={handleChange}
         />
       </div>
 
-      <button type="submit" className="btn btn-primary w-100">Guardar Cambios</button>
+      <button type="submit" className="btn btn-primary w-100">
+        Guardar Cambios
+      </button>
     </form>
   );
 };

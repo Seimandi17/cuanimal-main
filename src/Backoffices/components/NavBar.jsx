@@ -23,7 +23,7 @@ export default function NavBar() {
   return (
     <div className="sidebar d-flex flex-column">
       <header className="sidebar-header ">
-        <h4 className="text-light text-center">Menú</h4>
+        <h4 className="text-dark text-center">Menú</h4>
       </header>
       <section className="sidebar-nav flex-grow-1">
         <Link

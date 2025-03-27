@@ -1,0 +1,68 @@
+.lista-proveedores-admin {
+    padding: 1rem;
+  }
+  
+  .tabla-proveedores {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .tabla-proveedores th,
+  .tabla-proveedores td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .tabla-proveedores th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .sin-resultados {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    padding: 1rem;
+  }
+  
+  .loading-msg {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1rem;
+    color: #666;
+  }
+  .buscador-proveedores {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  
+  .paginacion button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .paginacion button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+    
