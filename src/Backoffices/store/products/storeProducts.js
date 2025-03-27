@@ -1,5 +1,6 @@
 import { BASE_URL } from "../../../config/config";
 
+// Permite múltiples roles
 const checkAuthAndRole = (requiredRole) => {
   const token = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user"));
@@ -8,8 +9,14 @@ const checkAuthAndRole = (requiredRole) => {
     throw new Error("No estás autenticado. Por favor, inicia sesión.");
   }
 
-  if (requiredRole && user.role_id !== requiredRole) {
-    throw new Error("No tienes permisos para realizar esta acción.");
+  if (requiredRole) {
+    if (Array.isArray(requiredRole)) {
+      if (!requiredRole.includes(user.role_id)) {
+        throw new Error("No tienes permisos para realizar esta acción.");
+      }
+    } else if (user.role_id !== requiredRole) {
+      throw new Error("No tienes permisos para realizar esta acción.");
+    }
   }
 
   return token;
@@ -17,7 +24,7 @@ const checkAuthAndRole = (requiredRole) => {
 
 export async function getData() {
   try {
-    const token = checkAuthAndRole(1);
+    const token = checkAuthAndRole([1, 2]); // Admin y Proveedor
 
     const response = await fetch(`${BASE_URL}/products`, {
       method: "GET",
@@ -31,8 +38,7 @@ export async function getData() {
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(
-        errorData.message ||
-          `Error al obtener los productses: ${response.status}`
+        errorData.message || `Error al obtener los productos: ${response.status}`
       );
     }
 
@@ -46,10 +52,10 @@ export async function getData() {
 
 export async function setData(formData) {
   try {
-    const token = checkAuthAndRole(1);
+    const token = checkAuthAndRole([1, 2]); // Admin y Proveedor
 
     // Obtener el token CSRF
-    await fetch("http://localhost:8000/sanctum/csrf-cookie", {
+    await fetch(`${BASE_URL}/sanctum/csrf-cookie`, {
       method: "GET",
       credentials: "include",
     });
@@ -57,7 +63,7 @@ export async function setData(formData) {
     // Enviar la solicitud POST
     const response = await fetch(`${BASE_URL}/products`, {
       method: "POST",
-      body: formData, 
+      body: formData,
       headers: {
         Accept: "application/json",
         Authorization: `Bearer ${token}`,
@@ -82,9 +88,9 @@ export async function setData(formData) {
 
 export async function updateData(formData, id) {
   try {
-    const token = checkAuthAndRole(1);
+    const token = checkAuthAndRole([1, 2]); // Admin y Proveedor
 
-    await fetch("http://localhost:8000/sanctum/csrf-cookie", {
+    await fetch(`${BASE_URL}/sanctum/csrf-cookie`, {
       method: "GET",
       credentials: "include",
     });
@@ -98,14 +104,12 @@ export async function updateData(formData, id) {
         Authorization: `Bearer ${token}`,
       },
       credentials: "include",
-
     });
 
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(
-        errorData.message ||
-          `Error al actualizar el products: ${response.status}`
+        errorData.message || `Error al actualizar el producto: ${response.status}`
       );
     }
 
@@ -116,10 +120,31 @@ export async function updateData(formData, id) {
     return { success: false, message: error.message };
   }
 }
+/* export async function getAllProducts() {
+  try {
+    const response = await fetch(`${BASE_URL}/products`, {
+      method: "GET",
+      headers: {
+        "Accept": "application/json"
+      },
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.message || 'Error al obtener los productos');
+    }
+
+    const json = await response.json();
+    return json.data;
+  } catch (error) {
+    console.error("Error en getAllProducts:", error.message);
+    return [];
+  }
+}*/
 
 export async function deleteData(id) {
   try {
-    const token = checkAuthAndRole(1);
+    const token = checkAuthAndRole([1, 2]); // Admin y Proveedor
 
     const response = await fetch(`${BASE_URL}/products/${id}`, {
       method: "DELETE",
@@ -133,7 +158,7 @@ export async function deleteData(id) {
     if (!response.ok) {
       const errorData = await response.json();
       throw new Error(
-        errorData.message || `Error al eliminar el products: ${response.status}`
+        errorData.message || `Error al eliminar el producto: ${response.status}`
       );
     }
 
@@ -141,6 +166,41 @@ export async function deleteData(id) {
     return { success: true, data: json.data };
   } catch (error) {
     console.error("Error en deleteData:", error.message);
+    return { success: false, message: error.message };
+  }
+}
+
+export async function changeStatus(id, newStatus) {
+  try {
+    const token = checkAuthAndRole(1); // Solo el Admin puede hacerlo
+
+    await fetch(`${BASE_URL}/sanctum/csrf-cookie`, {
+      method: "GET",
+      credentials: "include",
+    });
+
+    const response = await fetch(`${BASE_URL}/products/${id}/status`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ status: newStatus }),
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(
+        errorData.message || `Error al cambiar el estado: ${response.status}`
+      );
+    }
+
+    const json = await response.json();
+    return { success: true, data: json.data };
+  } catch (error) {
+    console.error("Error en changeStatus:", error.message);
     return { success: false, message: error.message };
   }
 }

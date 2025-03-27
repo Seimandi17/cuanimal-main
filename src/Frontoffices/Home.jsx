@@ -2,6 +2,7 @@ import Hero from './components/home/Hero.jsx';
 import PopularDestinations from './components/home/PopularDestinations.jsx';
 import FeaturedServices from './components/home/FeaturedServices.jsx';
 import Testimonials from './components/home/Testimonials.jsx';
+import ListaProductos from "./components/home/ListaProductos";
 import { Link } from 'react-router-dom';
 export default function Home () {
   return (
@@ -18,6 +19,9 @@ export default function Home () {
 
       <div className="container py-5">
         <Testimonials />
+      </div>
+      <div className="container py-5">
+        <ListaProductos />
       </div>
 
       <div className="container py-5">

@@ -11,9 +11,14 @@ export default function NavBar() {
     setCurrentPath(path);
   }, [path]);
 
- const handleLogout = () => {
-    logoutUser();
-   }
+  const handleLogout = async () => {
+    const result = await logoutUser();
+    if (result.success) {
+      window.location.href = "/login"; // O "/" si preferís
+    } else {
+      alert("Hubo un problema al cerrar sesión: " + result.message);
+    }
+  };
 
   return (
     <div className="sidebar d-flex flex-column">
@@ -25,10 +30,7 @@ export default function NavBar() {
           className={currentPath == "/backoffice" ? "sideBar-active" : ""}
           to="/backoffice"
         >
-          <img
-            className="sidebar-logoIcon"
-            src="/src/assets/logos/logoNotFound.png"
-          />
+          <img className="sidebar-logoIcon" src="/icons-backoffice/dashboard.svg"/>
           Dashboard
         </Link>
         {modules.map((mod, index) => (

@@ -50,7 +50,7 @@ const GestionServicio = ({ servicio }) => {
       {/* Imagen de portada */}
       {servicio.coverImg && (
         <img
-          src={`http://localhost:8000/storage/${servicio.coverImg}`}
+          src={`https://api.cuanimal.com/storage/${servicio.coverImg}`}
           alt={servicio.name}
           className="card-img-top"
         />

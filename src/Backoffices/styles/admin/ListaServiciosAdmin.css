@@ -1,0 +1,151 @@
+.lista-servicios-admin {
+    padding: 1rem;
+  }
+  
+  .tabla-servicios {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .tabla-servicios th,
+  .tabla-servicios td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+  }
+  
+  .tabla-servicios th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+.buscador-servicios {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .sin-resultados {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+    padding: 1rem;
+  }  
+
+.fila-clickable {
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+  }
+  
+  .fila-clickable:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .paginacion {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .paginacion button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .paginacion button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .modal-servicio {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-contenido {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+  }
+  .acciones-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  
+  .acciones-admin button {
+    padding: 0.6rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .btn-pausar {
+    background-color: #f0ad4e;
+  }
+  
+  .btn-restringir {
+    background-color: #d9534f;
+  }
+  
+  .btn-eliminar {
+    background-color: #b02a37;
+  }
+  
+  .btn-cerrar {
+    margin-top: 1rem;
+    background-color: #c4c4c4;
+    color: white;
+    padding: 0.5rem;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+  }
+  .badge-estado {
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    min-width: 80px;
+  }
+  
+  .badge-activo {
+    background-color: #28a745; /* verde */
+  }
+  
+  .badge-pausado {
+    background-color: #ffc107; /* amarillo */
+    color: #333;
+  }
+  
+  .badge-restringido {
+    background-color: #dc3545; /* rojo */
+  }
+    

@@ -68,72 +68,39 @@ const tiposServicios = [
 ];
 
 const FormAgregarServicio = () => {
-  // const [servicio, setServicio] = useState({
-  //   nombre: "",
-  //   tipo: "",
-  //   descripcion: "",
-  //   precio: "",
-  //   provincia: "",
-  //   ciudad: "",
-  //   direccion: "",
-  //   contacto: "",
-  //   portada: null,
-  //   imagenes: [],
-  // });
-
   const [previewPortada, setPreviewPortada] = useState(null);
   const [mensajeExito, setMensajeExito] = useState("");
 
-  // const handleChange = (e) => {
-  //   setServicio({ ...servicio, [e.target.name]: e.target.value });
-  // };
-
   const handleFileChange = (e) => {
     const { name, files } = e.target;
-
-    if (name === "coverImg") {
+    if (name === "coverImg" && files[0]) {
       const file = files[0];
-      if (file && file.type.startsWith("image/")) {
+      if (file.type.startsWith("image/")) {
         setPreviewPortada(URL.createObjectURL(file));
       }
     }
-    // } else {
-    //   const validFiles = Array.from(files).filter((file) =>
-    //     file.type.startsWith("image/")
-    //   );
-    //   setServicio({ ...servicio, imagenes: validFiles });
-    // }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    e.preventDefault();
-
     const form = e.target;
-
     const data = new FormData(form);
 
-    const result = await setData(data);
-  if(result){
-    setMensajeExito("¡Servicio agregado con éxito!");
-    setTimeout(() => setMensajeExito(""), 4000);
-  }
-    // const camposRequeridos = [
-    //   servicio.nombre, servicio.tipo, servicio.descripcion,
-    //   servicio.precio, servicio.provincia, servicio.ciudad,
-    //   servicio.direccion, servicio.portada, servicio.imagenes.length
-    // ];
-
-    // if (camposRequeridos.every(Boolean)) {
-    //   setServicio({
-    //     nombre: '', tipo: '', descripcion: '', precio: '',
-    //     provincia: '', ciudad: '', direccion: '', contacto: '',
-    //     portada: null, imagenes: []
-    //   });
-    //   setPreviewPortada(null);
-    
+    // Debug opcional
+    // for (let [key, value] of data.entries()) {
+    //   console.log(`${key}:`, value);
     // }
+
+    const result = await setData(data);
+
+    if (result?.success) {
+      setMensajeExito("¡Servicio agregado con éxito!");
+      form.reset();
+      setPreviewPortada(null);
+      setTimeout(() => setMensajeExito(""), 4000);
+    } else {
+      alert("Error: " + result.message);
+    }
   };
 
   return (
@@ -154,45 +121,31 @@ const FormAgregarServicio = () => {
         {/* Nombre y tipo */}
         <div>
           <label className="form-label">Nombre del Servicio</label>
-          <input
-            type="text"
-            name="name"
-            className="form-control"
-            required
-          />
+          <input type="text" name="name" className="form-control" required />
         </div>
 
         <div>
           <label className="form-label">Tipo de Servicio</label>
-          <select name="category_id" defaultValue={1} className="form-select" required>
-            <option value="1">Selecciona un tipo</option>
-            {tiposServicios.map((tipo, index) => (
-              <option key={index} value={tipo}>
-                {tipo}
-              </option>
-            ))}
-          </select>
+          <select name="category_id" defaultValue="" className="form-select" required>
+          <option value="" disabled>Selecciona un tipo</option>
+          {tiposServicios.map((tipo, index) => (
+            <option key={index} value={index + 1}>
+              {tipo}
+            </option>
+          ))}
+        </select>
         </div>
 
-        {/* Descripción (ocupa 2 columnas) */}
+        {/* Descripción */}
         <div className="col-span-2">
           <label className="form-label">Descripción</label>
-          <textarea
-            name="description"
-            className="form-control"
-            required
-          />
+          <textarea name="description" className="form-control" required />
         </div>
 
         {/* Precio y contacto */}
         <div>
           <label className="form-label">Precio (€)</label>
-          <input
-            type="number"
-            name="price"
-            className="form-control"
-            required
-          />
+          <input type="number" name="price" className="form-control" required />
         </div>
 
         <div>
@@ -205,16 +158,12 @@ const FormAgregarServicio = () => {
           />
         </div>
 
-        {/* Subtítulo ubicación */}
+        {/* Ubicación */}
         <h4 className="col-span-2 fw-bold mt-4">Ubicación</h4>
 
         <div>
           <label className="form-label">Provincia</label>
-          <select
-            name="province"
-            className="form-select"
-            required
-          >
+          <select name="province" className="form-select" required>
             <option value="">Selecciona una provincia</option>
             {provinciasEspaña.map((provincia, index) => (
               <option key={index} value={provincia}>
@@ -226,29 +175,17 @@ const FormAgregarServicio = () => {
 
         <div>
           <label className="form-label">Ciudad</label>
-          <input
-            type="text"
-            name="city"
-            className="form-control"
-            required
-          />
+          <input type="text" name="city" className="form-control" required />
         </div>
 
-        {/* Dirección exacta (ocupa 2 columnas) */}
         <div className="col-span-2">
           <label className="form-label">Dirección Exacta</label>
-          <input
-            type="text"
-            name="address"
-            className="form-control"
-            required
-          />
+          <input type="text" name="address" className="form-control" required />
         </div>
 
-        {/* Subtítulo imágenes */}
+        {/* Imágenes */}
         <h4 className="col-span-2 fw-bold mt-4">Imágenes</h4>
 
-        {/* Vista previa portada */}
         {previewPortada && (
           <div className="col-span-2 text-center">
             <img
@@ -273,25 +210,22 @@ const FormAgregarServicio = () => {
         </div>
 
         <div>
-          <label className="form-label">Imágenes adicionales</label>
+          <label className="form-label">Imagen adicional</label>
           <input
             type="file"
             name="extraImg"
             onChange={handleFileChange}
             className="form-control"
             accept="image/*"
-            multiple
-            required
           />
         </div>
 
-        {/* Botón (ocupa todo el ancho) */}
+        {/* Botón */}
         <div className="col-span-2">
           <button type="submit" className="btn btn-primary w-100">
             Agregar Servicio
           </button>
         </div>
-
       </form>
     </div>
   );
