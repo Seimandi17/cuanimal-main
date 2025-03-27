@@ -1,14 +1,34 @@
 import React from "react";
 import "../../styles/provider/UbicacionNegocio.css";
 
-const UbicacionNegocio = ({ ubicacion, setUbicacion }) => {
-  if (!ubicacion) return null; 
+const UbicacionNegocio = ({ perfil, setPerfil }) => {
+  if (!perfil) return null;
+
+  // Extraemos los campos de ubicación del perfil
+  // (podrías usarlos directamente en value, pero aquí queda explícito)
+  const { provincia = "", ciudad = "", direccion = "" } = perfil;
 
   const handleChange = (e) => {
-    setUbicacion({
-      ...ubicacion,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    // Actualizamos el perfil con el cambio en la ubicación
+    setPerfil((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleGuardar = () => {
+    // Obtenemos el usuario actual del localStorage
+    const user = JSON.parse(localStorage.getItem("user"));
+    const actualizado = {
+      ...user,
+      provincia: perfil.provincia,
+      ciudad: perfil.ciudad,
+      direccion: perfil.direccion,
+    };
+
+    localStorage.setItem("user", JSON.stringify(actualizado));
+    alert("Ubicación actualizada correctamente");
   };
 
   return (
@@ -21,7 +41,7 @@ const UbicacionNegocio = ({ ubicacion, setUbicacion }) => {
           type="text"
           className="form-control"
           name="provincia"
-          value={ubicacion.provincia || ""}
+          value={provincia}
           onChange={handleChange}
           placeholder="Ej: Madrid"
         />
@@ -33,7 +53,7 @@ const UbicacionNegocio = ({ ubicacion, setUbicacion }) => {
           type="text"
           className="form-control"
           name="ciudad"
-          value={ubicacion.ciudad || ""}
+          value={ciudad}
           onChange={handleChange}
           placeholder="Ej: Alcalá de Henares"
         />
@@ -45,11 +65,15 @@ const UbicacionNegocio = ({ ubicacion, setUbicacion }) => {
           type="text"
           className="form-control"
           name="direccion"
-          value={ubicacion.direccion || ""}
+          value={direccion}
           onChange={handleChange}
           placeholder="Ej: Calle Mayor 123"
         />
       </div>
+
+      <button className="btn btn-primary w-100 mt-3" onClick={handleGuardar}>
+        Guardar Ubicación
+      </button>
     </div>
   );
 };

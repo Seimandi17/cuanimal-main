@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PerfilHeader from '../../components/provider/PerfilHeader';
 import DatosPersonales from '../../components/provider/DatosPersonales';
 import DatosNegocio from '../../components/provider/DatosNegocio';
@@ -9,48 +9,42 @@ import ImagenPerfil from '../../components/provider/ImagenPerfil';
 import '../../styles/provider/MiPerfil.css';
 
 export default function MiPerfil() {
-  const [ubicacion, setUbicacion] = useState({
-    provincia: '',
-    ciudad: '',
-    direccion: ''
-  });
+  const [perfil, setPerfil] = useState(null); // datos del proveedor
 
-  const [datosNegocio, setDatosNegocio] = useState({
-    nombre: '',
-    categoria: '',
-    descripcion: '',
-    telefono: '',
-    horario: '',
-    sitioWeb: '',
-    redes: {
-      instagram: '',
-      facebook: ''
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setPerfil(JSON.parse(storedUser));
     }
-  });
+  }, []);
+
+  if (!perfil) {
+    return <p className="loading-msg">Cargando perfil...</p>;
+  }
 
   return (
     <div className="mi-perfil-page sectionModuls">
       <div className="perfil-container">
-        <PerfilHeader />
+        <PerfilHeader perfil={perfil} />
 
         <section className="perfil-section">
-          <DatosPersonales />
+          <DatosPersonales perfil={perfil} setPerfil={setPerfil} />
         </section>
 
         <section className="perfil-section">
-          <DatosNegocio datos={datosNegocio} setDatos={setDatosNegocio} />
+          <DatosNegocio perfil={perfil} setPerfil={setPerfil} />
         </section>
 
         <section className="perfil-section">
-          <UbicacionNegocio ubicacion={ubicacion} setUbicacion={setUbicacion} />
+          <UbicacionNegocio perfil={perfil} setPerfil={setPerfil} />
         </section>
 
         <section className="perfil-section">
-          <ImagenPerfil />
+          <ImagenPerfil perfil={perfil} setPerfil={setPerfil} />
         </section>
 
         <section className="perfil-section">
-          <PortadaNegocio />
+          <PortadaNegocio perfil={perfil} setPerfil={setPerfil} />
         </section>
       </div>
     </div>

@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/provider/ImagenPerfil.css";
 
-const ImagenPerfil = () => {
+const ImagenPerfil = ({ perfil, setPerfil }) => {
   const [imagenActual, setImagenActual] = useState("/img/perfil-default.webp");
   const [imagenNueva, setImagenNueva] = useState(null);
   const [preview, setPreview] = useState(null);
+
+  useEffect(() => {
+    if (perfil?.profile_image) {
+      setImagenActual(`${import.meta.env.VITE_BASE_URL}/storage/${perfil.profile_image}`);
+    }
+  }, [perfil]);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -16,11 +22,21 @@ const ImagenPerfil = () => {
 
   const handleGuardar = () => {
     if (imagenNueva) {
+      // Simulación de actualización local (sin backend aún)
+      const perfilActualizado = {
+        ...perfil,
+        profile_image: preview, // Esto en real sería el nombre de archivo desde el backend
+      };
+
+      setPerfil(perfilActualizado);
+      localStorage.setItem("user", JSON.stringify(perfilActualizado));
+
       setImagenActual(preview);
       setImagenNueva(null);
       setPreview(null);
       alert("Foto de perfil actualizada");
-      //enviar la imagen al backend
+
+      // 👉 Más adelante: subir la imagenNueva al backend con FormData
     }
   };
 
