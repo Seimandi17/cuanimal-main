@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ListaConversaciones from "../../components/provider/message/ListaConversaciones";
-import ChatSoporte from "../../components/provider/message/ChatSoporte";
-import "../../styles/provider/MensajesSoporte.css";
+import ListaConversaciones from "../../../components/provider/message/ListaConversaciones";
+import ChatSoporte from "../../../components/provider/message/ChatSoporte";
+import "./MensajesSoporte.css";
 
 const MensajesSoporte = () => {
   const [conversaciones] = useState([
@@ -46,7 +46,7 @@ const MensajesSoporte = () => {
 export default MensajesSoporte;
 
 export const PageInfo = {
-  path: "proveedor/soporte",
+  path: "soporte",
   title: "Mensajes / Soporte",
   homeStats: "Mensajes de Soporte",
   logo: "/icons-backoffice/chat.svg",

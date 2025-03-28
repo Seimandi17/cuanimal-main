@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import SectionHeaderServicios from '../../components/provider/SectionHeaderServicios';
-import FormAgregarServicio from '../../components/provider/FormAdd';
-import ListaServicios from '../../components/provider/ListaServicios';
-import '../../styles/provider/MisServicios.css';
+import SectionHeaderServicios from '../../../components/provider/SectionHeaderServicios';
+import FormAgregarServicio from '../../../components/provider/FormAdd';
+import ListaServicios from '../../../components/provider/ListaServicios';
+import './MisServicios.css';
 
 export default function MisServicios() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -25,7 +25,7 @@ export default function MisServicios() {
 }
 
 export const PageInfo = {
-  path: "proveedor/mis-servicios",
+  path: "mis-servicios",
   title: "Mis Servicios",
   homeStats: "Mis Servicios",
   logo: "/icons-backoffice/servicios.svg",

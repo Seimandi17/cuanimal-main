@@ -8,7 +8,7 @@ export default function ServiciosOfrecidos() {
   );
 }
   export const PageInfo = {
-    path: "admin/servicios",
+    path: "servicios",
     title: "Servicios ofrecidos",
     homeStats: "Servicios ofrecidos",
     logo: "/icons-backoffice/servicio-admin.svg",

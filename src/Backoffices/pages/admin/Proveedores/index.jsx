@@ -119,7 +119,7 @@ export default ListaProveedores;
 
 
   export const PageInfo = {
-    path: "admin/proveedores/lista-proveedores",
+    path: "proveedores/lista-proveedores",
     title: "Lista de Proveedores",
     homeStats: "Lista de Proveedores",
     logo: "/icons-backoffice/list-provider.svg",

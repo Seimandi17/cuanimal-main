@@ -1,15 +1,15 @@
 import { Route } from "react-router-dom";
 import BackofficesLayout from "./layouts/BackofficesLayouts";
 import Home from "./Home";
-import ListaClientes from "./pages/admin/Clientes/ListaClientes";
-import ListaProveedores from "./pages/admin/Proveedores/ListaProveedores";
-import ServiciosOfrecidos from "./pages/admin/Servicios/ServiciosOfrecidos";
-import Configuracion from "./pages/admin/Configuracion";
-import MisServicios from "./pages/provider/MisServicios";
+import ListaClientes from "./pages/admin/Clientes";
+import ListaProveedores from "./pages/admin/Proveedores";
+import ServiciosOfrecidos from "./pages/admin/Servicios";
+import Configuracion from "./pages/admin/Config";
+import MisServicios from "./pages/provider/Servicios";
 import Pedidos from "./pages/provider/Pedidos";
-import PerfilProveedor from "./pages/provider/PerfilProveedor";
-import MensajesSoporte from "./pages/provider/MensajesSoporte";
-import ValidarCuentas from "./pages/admin/ValidarCuentas";
+import MiPerfil from "./pages/provider/Perfil";
+import MensajesSoporte from "./pages/provider/Soporte";
+import ValidarCuentas from "./pages/admin/Validate";
 
 export const RoutesBackoffices = [
   <Route key="/backoffice" path="/backoffice" element={<BackofficesLayout />}>
@@ -21,7 +21,7 @@ export const RoutesBackoffices = [
     <Route path="admin/configuracion" element={<Configuracion />} />
     <Route path="proveedor/mis-servicios" element={<MisServicios />} />
     <Route path="proveedor/pedidos" element={<Pedidos />} />
-    <Route path="proveedor/mi-perfil" element={<PerfilProveedor />} />
+    <Route path="proveedor/mi-perfil" element={<MiPerfil />} />
     <Route path="proveedor/soporte" element={<MensajesSoporte />} />
     <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
   </Route>

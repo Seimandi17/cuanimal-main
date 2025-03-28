@@ -1,7 +1,7 @@
 import { useState } from "react";
-import PedidosHeader from "../../components/provider/pedidos/PedidosHeader";
-import ListaPedidos from "../../components/provider/pedidos/ListaPedidos";
-import "../../styles/provider/Pedidos.css";
+import PedidosHeader from "../../../components/provider/pedidos/PedidosHeader";
+import ListaPedidos from "../../../components/provider/pedidos/ListaPedidos";
+import "./Pedidos.css";
 
 export default function Pedidos() {
 
@@ -65,7 +65,7 @@ export default function Pedidos() {
 
 
 export const PageInfo = {
-  path: "proveedor/pedidos",
+  path: "pedidos",
   title: "Pedidos",
   homeStats: "Pedidos recibidos",
   logo: "/icons-backoffice/pedidos.svg",

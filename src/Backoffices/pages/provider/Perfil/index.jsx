@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import PerfilHeader from '../../components/provider/PerfilHeader';
-import DatosPersonales from '../../components/provider/DatosPersonales';
-import DatosNegocio from '../../components/provider/DatosNegocio';
-import UbicacionNegocio from '../../components/provider/UbicacionNegocio';
-import PortadaNegocio from '../../components/provider/PortadaNegocio';
-import ImagenPerfil from '../../components/provider/ImagenPerfil';
+import PerfilHeader from '../../../components/provider/PerfilHeader';
+import DatosPersonales from '../../../components/provider/DatosPersonales';
+import DatosNegocio from '../../../components/provider/DatosNegocio';
+import UbicacionNegocio from '../../../components/provider/UbicacionNegocio';
+import PortadaNegocio from '../../../components/provider/PortadaNegocio';
+import ImagenPerfil from '../../../components/provider/ImagenPerfil';
 
-import '../../styles/provider/MiPerfil.css';
+import './MiPerfil.css';
 
 export default function MiPerfil() {
   const [perfil, setPerfil] = useState(null); // datos del proveedor
@@ -52,7 +52,7 @@ export default function MiPerfil() {
 }
 
 export const PageInfo = {
-  path: "proveedor/mi-perfil",
+  path: "mi-perfil",
   title: "Mi Perfil",
   homeStats: "Mi Perfil",
   logo: "/icons-backoffice/perfil.svg",

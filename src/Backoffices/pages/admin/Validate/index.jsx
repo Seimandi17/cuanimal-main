@@ -1,9 +1,9 @@
 import { useState } from "react";
-import ValidacionHeader from "../../components/admin/valid/ValidacionesHeader";
-import ListaValidaciones from "../../components/admin/valid/ListaValidaciones";
-import "../../styles/admin/ValidarCuentas.css";
+import ValidacionHeader from "../../../components/admin/valid/ValidacionesHeader";
+import ListaValidaciones from "../../../components/admin/valid/ListaValidaciones";
+import "./ValidarCuentas.css";
 
-const ValidarCuentas = () => {
+export default function ValidarCuentas () {
   const [cuentas, setCuentas] = useState([
     {
       id: 1,
@@ -56,10 +56,8 @@ const ValidarCuentas = () => {
   );
 };
 
-export default ValidarCuentas;
-
 export const PageInfo = {
-  path: "admin/validaciones",
+  path: "validaciones",
   title: "Validar Cuentas",
   homeStats: "Cuentas pendientes",
   logo: "/icons-backoffice/validar.svg",
