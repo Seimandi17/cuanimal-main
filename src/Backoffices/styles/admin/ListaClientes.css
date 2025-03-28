@@ -1,0 +1,54 @@
+.lista-clientes {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .buscador-clientes {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .tabla-clientes {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabla-clientes th,
+  .tabla-clientes td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .sin-resultados {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+  }
+  
+  .paginacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 1rem;
+  }
+  
+  .paginacion button {
+    padding: 8px 14px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .paginacion button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
