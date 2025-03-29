@@ -1,8 +1,9 @@
 import React from "react";
 import "../../../styles/admin/ListaValidaciones.css";
+
 const ListaValidaciones = ({ usuariosPendientes, onAceptar, onRechazar }) => {
   const pendientes = usuariosPendientes.filter(
-    (usuario) => usuario.estado === "pendiente"
+    (usuario) => usuario.status === "pending"
   );
 
   return (
@@ -20,8 +21,14 @@ const ListaValidaciones = ({ usuariosPendientes, onAceptar, onRechazar }) => {
           {pendientes.length > 0 ? (
             pendientes.map((usuario) => (
               <tr key={usuario.id}>
-                <td>{usuario.nombre}</td>
-                <td>{usuario.rol}</td>
+                <td>{`${usuario.name} ${usuario.lastname}`}</td>
+                <td>
+                  {usuario.role_id === 2
+                    ? "Proveedor"
+                    : usuario.role_id === 1
+                    ? "Administrador"
+                    : "Cliente"}
+                </td>
                 <td>{usuario.email}</td>
                 <td>
                   <button
@@ -51,6 +58,5 @@ const ListaValidaciones = ({ usuariosPendientes, onAceptar, onRechazar }) => {
     </div>
   );
 };
-
 
 export default ListaValidaciones;
