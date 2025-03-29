@@ -5,7 +5,7 @@ import Home from "./Home";
 import Travel from "./pages/Travel";
 import Transport from "./pages/Transport";
 import Proveedores from "./pages/Proveedores"
-
+import Explorer from "./pages/Explorer"
 
 export const RoutesFrontoffices = [
     <Route key={'/frontoffices'} path="/" element={<PageLayout/>}>
@@ -16,6 +16,7 @@ export const RoutesFrontoffices = [
       <Route path="viajar-con-ellos" element={<Travel />} />
       <Route path="transporte-de-mascotas" element={<Transport />} />
       <Route path="proveedores" element={<Proveedores />} />
+      <Route path="explorer" element={<Explorer />} />
       <Route path="*" element={<h1> 404 </h1>} />
     </Route>
 ];

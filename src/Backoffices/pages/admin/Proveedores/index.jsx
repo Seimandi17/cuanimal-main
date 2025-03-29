@@ -122,6 +122,6 @@ export default ListaProveedores;
     path: "proveedores/lista-proveedores",
     title: "Lista de Proveedores",
     homeStats: "Lista de Proveedores",
-    logo: "/icons-backoffice/list-provider.svg",
+    logo: "/icons-backoffice/provider.svg",
     count: 20,
   };

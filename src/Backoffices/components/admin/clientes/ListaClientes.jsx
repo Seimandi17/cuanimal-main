@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../../styles/admin//ListaProveedores.css"; 
+import "../../../styles/admin//ListaProveedores.css";
 
 const ListaClientes = ({ clientes }) => {
   const [filtro, setFiltro] = useState("");
@@ -47,9 +47,8 @@ const ListaClientes = ({ clientes }) => {
           <tr>
             <th>Nombre</th>
             <th>Email</th>
-            <th>Usuario</th>
             <th>Teléfono</th>
-            <th>Registrado el</th>
+            <th>Fecha de Registro</th>
           </tr>
         </thead>
         <tbody>
@@ -58,7 +57,6 @@ const ListaClientes = ({ clientes }) => {
               <tr key={cliente.id}>
                 <td>{cliente.name} {cliente.lastname}</td>
                 <td>{cliente.email}</td>
-                <td>{cliente.username}</td>
                 <td>{cliente.phone || "—"}</td>
                 <td>{new Date(cliente.created_at).toLocaleDateString()}</td>
               </tr>
