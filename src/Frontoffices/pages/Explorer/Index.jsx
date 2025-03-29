@@ -1,4 +1,4 @@
-export default function Explore() {
+export default function Explorer() {
     return(
         <>
             <h1>Explora y encontrá lo mejor para tu mascota amiga</h1>

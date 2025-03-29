@@ -1,4 +1,4 @@
-const importedModules = import.meta.glob("/src/Frontoffices/pages/*.jsx", { eager: true });
+const importedModules = import.meta.glob("/src/Frontoffices/pages/*/index.jsx", { eager: true });
 
 export const modules = Object.entries(importedModules).map(([path, module]) => {
   if (!module.PageInfo) {
