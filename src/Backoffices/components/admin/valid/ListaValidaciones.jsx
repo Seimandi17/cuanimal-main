@@ -2,9 +2,7 @@ import React from "react";
 import "../../../styles/admin/ListaValidaciones.css";
 
 const ListaValidaciones = ({ usuariosPendientes, onAceptar, onRechazar }) => {
-  const pendientes = usuariosPendientes.filter(
-    (usuario) => usuario.status === "pending"
-  );
+  const pendientes = usuariosPendientes;
 
   return (
     <div className="tabla-validaciones card p-3">
@@ -12,7 +10,7 @@ const ListaValidaciones = ({ usuariosPendientes, onAceptar, onRechazar }) => {
         <thead className="table-light">
           <tr>
             <th>Nombre</th>
-            <th>Tipo de Cuenta</th>
+            <th>Negocio</th>
             <th>Email</th>
             <th>Acciones</th>
           </tr>
@@ -21,15 +19,11 @@ const ListaValidaciones = ({ usuariosPendientes, onAceptar, onRechazar }) => {
           {pendientes.length > 0 ? (
             pendientes.map((usuario) => (
               <tr key={usuario.id}>
-                <td>{`${usuario.name} ${usuario.lastname}`}</td>
+                <td>{`${usuario.user.name} ${usuario.user.lastName}`}</td>
                 <td>
-                  {usuario.role_id === 2
-                    ? "Proveedor"
-                    : usuario.role_id === 1
-                    ? "Administrador"
-                    : "Cliente"}
+                  {usuario.businessName}
                 </td>
-                <td>{usuario.email}</td>
+                <td>{usuario.user.email}</td>
                 <td>
                   <button
                     className="btn btn-success btn-sm me-2"
