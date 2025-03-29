@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../../styles/admin/ListaClientes.css";
+import "../../../styles/admin//ListaProveedores.css"; 
 
 const ListaClientes = ({ clientes }) => {
   const [filtro, setFiltro] = useState("");
@@ -30,11 +30,11 @@ const ListaClientes = ({ clientes }) => {
   };
 
   return (
-    <div className="lista-clientes">
+    <div className="lista-proveedores-admin">
       <input
         type="text"
         placeholder="Buscar por nombre, email o usuario..."
-        className="buscador-clientes"
+        className="buscador-proveedores"
         value={filtro}
         onChange={(e) => {
           setFiltro(e.target.value);
@@ -42,7 +42,7 @@ const ListaClientes = ({ clientes }) => {
         }}
       />
 
-      <table className="tabla-clientes">
+      <table className="tabla-proveedores">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -65,7 +65,7 @@ const ListaClientes = ({ clientes }) => {
             ))
           ) : (
             <tr>
-              <td colSpan="4" className="sin-resultados">
+              <td colSpan="5" className="sin-resultados">
                 No se encontraron clientes.
               </td>
             </tr>
