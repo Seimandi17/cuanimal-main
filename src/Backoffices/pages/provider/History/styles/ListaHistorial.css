@@ -1,0 +1,56 @@
+.tabla-historial-container {
+    overflow-x: auto;
+  }
+  
+  .tabla-historial {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .tabla-historial th,
+  .tabla-historial td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .tabla-historial th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .estado {
+    padding: 0.3rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: white;
+  }
+  
+  .estado-completado {
+    background-color: #28a745;
+  }
+  
+  .estado-pendiente {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .estado-cancelado {
+    background-color: #dc3545;
+  }
+  
+  .mensaje-vacio {
+    text-align: center;
+    color: #888;
+    margin-top: 2rem;
+  }
+  .buscador-historial {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }

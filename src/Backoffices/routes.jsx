@@ -10,6 +10,7 @@ import Pedidos from "./pages/provider/Pedidos";
 import MiPerfil from "./pages/provider/Perfil";
 import MensajesSoporte from "./pages/provider/Soporte";
 import ValidarCuentas from "./pages/admin/Validate";
+import HistorialServicios from "./pages/provider/History";
 
 export const RoutesBackoffices = [
   <Route key="/backoffice" path="/backoffice" element={<BackofficesLayout />}>
@@ -22,6 +23,7 @@ export const RoutesBackoffices = [
     <Route path="proveedor/mis-servicios" element={<MisServicios />} />
     <Route path="proveedor/pedidos" element={<Pedidos />} />
     <Route path="proveedor/mi-perfil" element={<MiPerfil />} />
+    <Route path="proveedor/historial" element={<HistorialServicios />} />
     <Route path="proveedor/soporte" element={<MensajesSoporte />} />
     <Route path="*" element={<h1>404 - Página no encontrada</h1>} />
   </Route>
