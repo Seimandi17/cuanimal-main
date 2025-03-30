@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import ValidacionHeader from "../../../components/admin/valid/ValidacionesHeader";
 import ListaValidaciones from "../../../components/admin/valid/ListaValidaciones";
-import { getData, updateData, deleteData } from "../../../store/provider/storeProvider";
 import "./ValidarCuentas.css";
+import { getData, updateData } from "./store/storeValidate";
 
 export default function ValidarCuentas () {
   const [cuentas, setCuentas] = useState([]);
@@ -12,8 +12,7 @@ export default function ValidarCuentas () {
     const cargarCuentasPendientes = async () => {
       try {
         const todos = await getData();
-        const pendientes = todos.filter((user) => user.status === "pending");
-        setCuentas(pendientes);
+        setCuentas(todos);
       } catch (error) {
         console.error("Error al cargar cuentas pendientes:", error);
       } finally {
@@ -25,24 +24,24 @@ export default function ValidarCuentas () {
   }, []);
 
   const aceptarCuenta = async (id) => {
-    const cuenta = cuentas.find((u) => u.id === id);
-    if (!cuenta) return;
 
-    const actualizado = { ...cuenta, status: "active" };
+    const actualizado = { 'id': id, status: "active" };
 
     const res = await updateData(actualizado, id);
     if (res?.success) {
-      setCuentas((prev) => prev.filter((u) => u.id !== id));
+      const todos = await getData();
+      setCuentas(todos);
     }
   };
 
   const rechazarCuenta = async (id) => {
     const confirmar = confirm("¿Estás seguro de eliminar esta cuenta?");
     if (!confirmar) return;
-
-    const res = await deleteData(id);
+    const deleting = { 'id': id, status: "rejected" };
+    const res = await updateData(deleting);
     if (res?.success) {
-      setCuentas((prev) => prev.filter((u) => u.id !== id));
+      const todos = await getData();
+      setCuentas(todos);
     }
   };
 

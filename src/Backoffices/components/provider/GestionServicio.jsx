@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import '../../styles/provider/GestionServicio.css'
 import { deleteData, updateData } from "../../store/products/storeProducts";
+import { BASE_UPLOAD } from "../../../config/config";
 
 const CampoEditable = ({ tipo = "text", valor, modoEdicion, onChange }) => {
   return modoEdicion ? (
@@ -50,7 +51,7 @@ const GestionServicio = ({ servicio }) => {
       {/* Imagen de portada */}
       {servicio.coverImg && (
         <img
-          src={`https://api.cuanimal.com/storage/${servicio.coverImg}`}
+          src={`${BASE_UPLOAD}${servicio.coverImg}`}
           alt={servicio.name}
           className="card-img-top"
         />
