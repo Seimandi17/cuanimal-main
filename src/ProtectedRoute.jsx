@@ -7,14 +7,14 @@ const ProtectedRoute = ({ requiredRole }) => {
 
   const isAuthenticated = user && token;
 
-  if (!isAuthenticated) {
+  /*if (!isAuthenticated) {
     return <Navigate to="/login" replace />;
   }
 
   // Verifica si el role del usuario está incluido en el array de roles permitidos
   if (requiredRole && !requiredRole.includes(user.role_id)) {
     return <Navigate to="/unauthorized" replace />;
-  }
+  }*/
 
   return <Outlet />;
 };
