@@ -1,17 +1,18 @@
 import { Route } from "react-router-dom";
-import Contact from "./pages/Contact/Index";
 import PageLayout from "./layouts/PageLayout";
 import Home from "./Home";
 import Adiestramiento from "./pages/Adiestramiento";
-import Alojamiento from "./pages/Alojamiento";
-import AllFriend from "./pages/AllFriend";
 import Adopta from "./pages/Adopta";
+import AllFriend from "./pages/AllFriend";
+import Alojamiento from "./pages/Alojamiento";
 import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import Explorer from "./pages/Explorer";
 import Paseo from "./pages/Paseo";
-import Travel from "./pages/Travel";
+import Proveedores from "./pages/Provider";
 import Transport from "./pages/Transport";
-import Proveedores from "./pages/Provider"
-import Explorer from "./pages/Explorer"
+import Travel from "./pages/Travel";
+
 
 export const RoutesFrontoffices = [
     <Route key={'/frontoffices'} path="/" element={<PageLayout/>}>

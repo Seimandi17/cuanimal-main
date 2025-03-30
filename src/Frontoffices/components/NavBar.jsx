@@ -27,7 +27,7 @@ export default function NavBar() {
   };
 
   return (
-    <nav className="header-navbar navbar bg-white fixed-top shadow-sm">
+    <nav className="header-navbar navbar bg-white shadow-sm">
       <div className="header-navbar-container container-fluid d-flex justify-content-between align-items-center">
         
         {/* Sección del menú y logo */}

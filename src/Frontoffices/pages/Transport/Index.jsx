@@ -3,7 +3,7 @@ export default function Transport () {
 }
 
 export const PageInfo = {
-  path: "Transporte-de-mascotas",
+  path: "transporte-de-mascotas",
   title: "Transporte de Mascotas",
   logo: "/logos/transport.svg",
   count: 20,
