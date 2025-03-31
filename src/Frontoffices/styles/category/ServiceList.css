@@ -1,0 +1,45 @@
+.servicios-list {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  .servicios-list .card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  
+  .servicios-list .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .servicios-list .card-img-top {
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .servicios-list .card-body {
+    padding: 1rem;
+  }
+  
+  .servicios-list .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .servicios-list .card-text {
+    min-height: 60px;
+    color: #666;
+  }
+  
+  .servicios-list .btn-outline-primary {
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .servicios-list .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  

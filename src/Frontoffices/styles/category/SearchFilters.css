@@ -1,0 +1,33 @@
+.search-filters {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-filters .form-label {
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .search-filters .form-control,
+  .search-filters .form-select {
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .search-filters .btn {
+    padding: 0.6rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .search-filters .btn:hover {
+    transform: scale(1.02);
+  }
+  
+  @media (max-width: 768px) {
+    .search-filters .row {
+      gap: 1rem;
+    }
+  }
+  
