@@ -55,7 +55,7 @@ export async function setData(formData) {
     const token = checkAuthAndRole([1, 2]); // Admin y Proveedor
 
     // Obtener el token CSRF
-    await fetch(`${BASE_URL}/sanctum/csrf-cookie`, {
+    await fetch(`http://localhost:8000/sanctum/csrf-cookie`, {
       method: "GET",
       credentials: "include",
     });
@@ -120,7 +120,7 @@ export async function updateData(formData, id) {
     return { success: false, message: error.message };
   }
 }
-/* export async function getAllProducts() {
+export async function getAllProducts() {
   try {
     const response = await fetch(`${BASE_URL}/products`, {
       method: "GET",
@@ -140,7 +140,7 @@ export async function updateData(formData, id) {
     console.error("Error en getAllProducts:", error.message);
     return [];
   }
-}*/
+}
 
 export async function deleteData(id) {
   try {

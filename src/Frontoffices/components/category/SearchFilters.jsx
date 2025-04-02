@@ -1,66 +1,87 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../styles/category/SearchFilters.css";
+import { Search } from "lucide-react";
 
 const SearchFilters = ({ onFiltrosChange }) => {
-  const [precioMin, setPrecioMin] = useState("");
-  const [precioMax, setPrecioMax] = useState("");
+  const [busqueda, setBusqueda] = useState("");
+  const [precioMin, setPrecioMin] = useState(0);
+  const [precioMax, setPrecioMax] = useState(200);
   const [orden, setOrden] = useState("recientes");
 
-  const handleAplicar = () => {
-    const filtros = {
+  useEffect(() => {
+    onFiltrosChange({
+      busqueda,
       precioMin,
       precioMax,
       orden,
-    };
-
-    onFiltrosChange(filtros);
-  };
+    });
+  }, [busqueda, precioMin, precioMax, orden]);
 
   return (
-    <div className="search-filters container my-4">
-      <div className="row g-3 align-items-end bg-white shadow-sm rounded p-4">
-        <div className="col-md-3">
-          <label className="form-label">Precio mínimo</label>
+    <div className="filtros-laterales shadow-sm p-4 rounded bg-white">
+      <h5 className="fw-bold mb-3">Filtros</h5>
+
+      {/* Búsqueda */}
+      <div className="mb-4">
+        <label className="form-label">Buscar</label>
+        <div className="input-group">
+          <span className="input-group-text bg-light">
+            <Search size={16} />
+          </span>
           <input
-            type="number"
+            type="text"
             className="form-control"
-            value={precioMin}
-            onChange={(e) => setPrecioMin(e.target.value)}
-            placeholder="Ej: 10"
-            min={0}
+            placeholder="Buscar por nombre o descripción"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
           />
         </div>
+      </div>
 
-        <div className="col-md-3">
-          <label className="form-label">Precio máximo</label>
-          <input
-            type="number"
-            className="form-control"
-            value={precioMax}
-            onChange={(e) => setPrecioMax(e.target.value)}
-            placeholder="Ej: 100"
-            min={0}
-          />
-        </div>
+      {/* Precio mínimo */}
+      <div className="mb-4">
+        <label className="form-label">
+          Precio mínimo: <strong>{precioMin}€</strong>
+        </label>
+        <input
+          type="range"
+          className="form-range"
+          min="0"
+          max={precioMax}
+          step="5"
+          value={precioMin}
+          onChange={(e) => setPrecioMin(Number(e.target.value))}
+        />
+      </div>
 
-        <div className="col-md-4">
-          <label className="form-label">Ordenar por</label>
-          <select
-            className="form-select"
-            value={orden}
-            onChange={(e) => setOrden(e.target.value)}
-          >
-            <option value="recientes">Más recientes</option>
-            <option value="precio-asc">Precio: menor a mayor</option>
-            <option value="precio-desc">Precio: mayor a menor</option>
-          </select>
-        </div>
+      {/* Precio máximo */}
+      <div className="mb-4">
+        <label className="form-label">
+          Precio máximo: <strong>{precioMax}€</strong>
+        </label>
+        <input
+          type="range"
+          className="form-range"
+          min={precioMin}
+          max="500"
+          step="5"
+          value={precioMax}
+          onChange={(e) => setPrecioMax(Number(e.target.value))}
+        />
+      </div>
 
-        <div className="col-md-2 d-grid">
-          <button className="btn btn-primary" onClick={handleAplicar}>
-            Aplicar
-          </button>
-        </div>
+      {/* Ordenar por */}
+      <div className="mb-3">
+        <label className="form-label">Ordenar por</label>
+        <select
+          className="form-select"
+          value={orden}
+          onChange={(e) => setOrden(e.target.value)}
+        >
+          <option value="recientes">Más recientes</option>
+          <option value="precio-asc">Precio: menor a mayor</option>
+          <option value="precio-desc">Precio: mayor a menor</option>
+        </select>
       </div>
     </div>
   );

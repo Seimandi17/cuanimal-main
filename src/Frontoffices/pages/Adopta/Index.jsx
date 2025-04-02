@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HeroSection from '../../components/category/HeroSection';
 import SearchFilters from '../../components/category/SearchFilters';
 import ServiceList from '../../components/category/ServiceList';
-import { getData } from '../../../Backoffices/store/products/storeProducts';
+import { getAllProducts } from '../../../Backoffices/store/products/storeProducts';
 
 export default function Adopta() {
   const [servicios, setServicios] = useState([]);
@@ -10,14 +10,20 @@ export default function Adopta() {
   const [filtros, setFiltros] = useState({});
 
   useEffect(() => {
-    getData().then((data) => {
-      if (Array.isArray(data)) setServicios(data);
-    });
+    const cargarServicios = async () => {
+      const data = await getAllProducts();
+      console.log("Servicios recibidos:", data); // 👈 esto es importante
+      if (Array.isArray(data)) {
+        setServicios(data);
+      }
+    };
+
+    cargarServicios();
   }, []);
 
   const filtrarServicios = () => {
     return servicios
-      .filter((s) => s.category === "Adopta")
+      .filter((s) => s.category_id === 7)
       .filter((s) =>
         s.name.toLowerCase().includes(busqueda.toLowerCase()) ||
         s.description.toLowerCase().includes(busqueda.toLowerCase())
@@ -33,25 +39,42 @@ export default function Adopta() {
         return 0;
       });
   };
-
-  return (
-    <div>
-      <HeroSection
-        titulo= "¡Adoptá una mascota hoy!"
-        descripcio= "Dales una segunda oportunidad a perros y gatos que buscan un hogar."
-        placeholder= "Buscar mascotas en adopción..."
-        imagenPrincipal="/img/mascota-hotel.jpg"
-        imagenesSecundarias={["/img/mascota-hotel.jpg", "/img/mascota-hotel.jpg"]}
-        onBuscar={setBusqueda}
-      />
-      <SearchFilters onFiltrosChange={setFiltros} />
-      <ServiceList
-        servicios={filtrarServicios()}
-        categoria="Adopta"
-        busqueda={busqueda}
-      />
-    </div>
-  );
+    return (
+      <div>
+        {/* Hero limpio */}
+        <HeroSection
+          titulo="¡Adoptá una mascota hoy!"
+          descripcion="Dales una segunda oportunidad a perros y gatos que buscan un hogar."
+          imagenPrincipal="/img/mascota-parque.jpg"
+          imagenesSecundarias={[
+            "/img/mascota-parque.jpg",
+            "/img/mascota-parque.jpg"
+          ]}
+        />
+  
+        {/* Layout con filtros a la izquierda y servicios a la derecha */}
+        <div className="container-fluid my-4">
+          <div className="row">
+            {/* Sidebar de filtros */}
+            <div className="col-lg-3 col-md-4">
+              <SearchFilters
+                onFiltrosChange={(f) => setFiltros(f)}
+                onBuscar={(b) => setBusqueda(b)}
+              />
+            </div>
+  
+            {/* Lista de servicios */}
+            <div className="col-lg-9 col-md-8">
+              <ServiceList
+                servicios={filtrarServicios()}
+                categoria={7}
+                busqueda={busqueda}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 }
 export const PageInfo = {
     path: "adopta",
