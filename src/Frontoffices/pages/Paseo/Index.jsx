@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import HeroSection from '../../components/category/HeroSection';
 import SearchFilters from '../../components/category/SearchFilters';
 import ServiceList from '../../components/category/ServiceList';
-import { getData } from '../../../Backoffices/store/products/storeProducts';
+import { getAllProducts } from '../../../Backoffices/store/products/storeProducts';
 
 export default function Paseadores() {
   const [servicios, setServicios] = useState([]);
@@ -10,14 +10,20 @@ export default function Paseadores() {
   const [filtros, setFiltros] = useState({});
 
   useEffect(() => {
-    getData().then((data) => {
-      if (Array.isArray(data)) setServicios(data);
-    });
+    const cargarServicios = async () => {
+      const data = await getAllProducts();
+      console.log("Servicios recibidos:", data); // 👈 esto es importante
+      if (Array.isArray(data)) {
+        setServicios(data);
+      }
+    };
+
+    cargarServicios();
   }, []);
 
   const filtrarServicios = () => {
     return servicios
-      .filter((s) => s.category === "Paseadores")
+      .filter((s) => s.category_id === 3)
       .filter((s) =>
         s.name.toLowerCase().includes(busqueda.toLowerCase()) ||
         s.description.toLowerCase().includes(busqueda.toLowerCase())
@@ -36,20 +42,38 @@ export default function Paseadores() {
 
   return (
     <div>
+      {/* Hero limpio */}
       <HeroSection
         titulo= "Paseadores profesionales para tu mascota"
         descripcio= "Encontrá paseadores de confianza en tu zona, con horarios flexibles y dedicación total."
-        placeholder= "Buscar paseador..."
-        imagenPrincipal="/img/mascota-hotel.jpg"
-        imagenesSecundarias={["/img/mascota-hotel.jpg", "/img/mascota-hotel.jpg"]}
-        onBuscar={setBusqueda}
+        imagenPrincipal="/img/mascota-parque.jpg"
+        imagenesSecundarias={[
+          "/img/mascota-parque.jpg",
+          "/img/mascota-parque.jpg"
+        ]}
       />
-      <SearchFilters onFiltrosChange={setFiltros} />
-      <ServiceList
-        servicios={filtrarServicios()}
-        categoria="Paseadores"
-        busqueda={busqueda}
-      />
+
+      {/* Layout con filtros a la izquierda y servicios a la derecha */}
+      <div className="container-fluid my-4">
+        <div className="row">
+          {/* Sidebar de filtros */}
+          <div className="col-lg-3 col-md-4">
+            <SearchFilters
+              onFiltrosChange={(f) => setFiltros(f)}
+              onBuscar={(b) => setBusqueda(b)}
+            />
+          </div>
+
+          {/* Lista de servicios */}
+          <div className="col-lg-9 col-md-8">
+            <ServiceList
+              servicios={filtrarServicios()}
+              categoria={3}
+              busqueda={busqueda}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

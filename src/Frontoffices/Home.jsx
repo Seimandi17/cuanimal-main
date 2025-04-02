@@ -16,10 +16,6 @@ export default function Home () {
           <FeaturedServices />
         </div>
       </div>
-
-      <div className="container py-5">
-        <Testimonials />
-      </div>
       <div className="container py-5">
         <ListaProductos />
       </div>
@@ -78,6 +74,9 @@ export default function Home () {
           </div>
           </div>
         </div>
+      </div>
+      <div className="container py-5">
+        <Testimonials />
       </div>
       </main>
     </div>

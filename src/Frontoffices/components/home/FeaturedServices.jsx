@@ -7,28 +7,28 @@ const services = [
     title: 'Alojamiento para mascotas',
     description: 'Encuentra hoteles, apartamentos y casas rurales donde tu mascota es bienvenida.',
     icon: <Hotel size={40} className="text-primary" />,
-    link: '/viajar-con-ellos'
+    link: '/alojamiento'
   },
   {
     id: 2,
     title: 'Transporte de mascotas',
     description: 'Servicios de transporte especializado para que tu mascota viaje segura.',
     icon: <Car size={40} className="text-primary" />,
-    link: '/transporte-mascotas'
+    link: '/transporte-de-mascotas'
   },
   {
     id: 3,
     title: 'Cuidadores a domicilio',
     description: 'Paseadores y cuidadores profesionales que se encargarán de tu mascota.',
     icon: <PawPrint size={40} className="text-primary" />,
-    link: '/paseo-adiestramiento'
+    link: '/adiestramiento'
   },
   {
     id: 4,
     title: 'Lugares pet-friendly',
     description: 'Restaurantes, cafeterías, parques y playas donde tu mascota es bienvenida.',
     icon: <MapPin size={40} className="text-primary" />,
-    link: '/todo-para-tu-amigo'
+    link: '/viajar-con-ellos'
   }
 ];
 

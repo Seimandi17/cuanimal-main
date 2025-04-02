@@ -3,7 +3,7 @@ import "../../styles/category/ServiceList.css";
 
 const ServiceList = ({ servicios = [], busqueda = "", categoria = "" }) => {
   const filtrados = servicios.filter((servicio) => {
-    const coincideCategoria = servicio.category === categoria;
+    const coincideCategoria = servicio.category_id === categoria;
     const coincideBusqueda =
       servicio.name.toLowerCase().includes(busqueda.toLowerCase()) ||
       servicio.description.toLowerCase().includes(busqueda.toLowerCase());
@@ -20,18 +20,20 @@ const ServiceList = ({ servicios = [], busqueda = "", categoria = "" }) => {
               <div className="card h-100 shadow-sm">
                 {servicio.coverImg && (
                   <img
-                    src={`https://api.cuanimal.com/storage/${servicio.coverImg}`}
+                    src={`http://localhost:8000/storage/${servicio.coverImg}`}
                     alt={servicio.name}
                     className="card-img-top"
                   />
                 )}
                 <div className="card-body">
                   <h5 className="card-title fw-bold">{servicio.name}</h5>
-                  <p className="card-text text-muted" style={{ fontSize: "0.9rem" }}>
-                    {servicio.description.slice(0, 100)}...
+                  <p className="card-text">
+                    {servicio.description.slice(0, 80)}...
                   </p>
-                  <p className="fw-semibold mb-1">Precio: {servicio.price}€</p>
-                  <p className="small text-muted">Proveedor: {servicio.provider_name || "Anónimo"}</p>
+                  <p className="fw-semibold mb-1">Desde {servicio.price}€</p>
+                  <p className="small text-muted">
+                    {servicio.city} – {servicio.provider_name || "Anónimo"}
+                  </p>
                   <button className="btn btn-outline-primary btn-sm w-100 mt-2">
                     Ver más
                   </button>

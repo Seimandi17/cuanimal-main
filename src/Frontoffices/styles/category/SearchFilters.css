@@ -1,33 +1,68 @@
-.search-filters {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+.filtros-laterales {
+  width: 100%;
+  border-radius: 16px;
+  background-color: #fff;
+  padding: 1.5rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.filtros-laterales h5 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #222;
+}
+
+.filtros-laterales .form-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 0.3rem;
+}
+
+.filtros-laterales .form-control,
+.filtros-laterales .form-select {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  box-shadow: none;
+  transition: border-color 0.2s;
+}
+
+.filtros-laterales .form-control:focus,
+.filtros-laterales .form-select:focus {
+  border-color: #0d6efd;
+  outline: none;
+}
+
+.filtros-laterales .input-group-text {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+.filtros-laterales .input-group .form-control {
+  border-left: 0;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Eliminar estilos del botón ya que no existe más */
+.filtros-laterales .btn {
+  display: none;
+}
+.filtros-laterales .form-range {
+  width: 100%;
+  accent-color: #0d6efd;
+  height: 6px;
+  border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filtros-laterales {
+    margin-bottom: 1.5rem;
   }
-  
-  .search-filters .form-label {
-    font-weight: 500;
-    color: #444;
-  }
-  
-  .search-filters .form-control,
-  .search-filters .form-select {
-    border-radius: 8px;
-    box-shadow: none;
-    border: 1px solid #ccc;
-  }
-  
-  .search-filters .btn {
-    padding: 0.6rem 1rem;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .search-filters .btn:hover {
-    transform: scale(1.02);
-  }
-  
-  @media (max-width: 768px) {
-    .search-filters .row {
-      gap: 1rem;
-    }
-  }
-  
+}

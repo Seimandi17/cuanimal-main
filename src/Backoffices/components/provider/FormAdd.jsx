@@ -101,6 +101,10 @@ const FormAgregarServicio = () => {
     } else {
       alert("Error: " + result.message);
     }
+    for (let [key, value] of data.entries()) {
+      console.log(`${key}:`, value);
+    }
+    
   };
 
   return (
