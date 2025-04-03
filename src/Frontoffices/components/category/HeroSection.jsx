@@ -5,7 +5,7 @@ const HeroCategoria = ({
   imagenesSecundarias = []
 }) => {
   return (
-    <div className="bg-light py-5 border-bottom">
+    <div className="bg-light py-5 border-bottom " >
       <div className="container">
         <div className="row align-items-center">
 
