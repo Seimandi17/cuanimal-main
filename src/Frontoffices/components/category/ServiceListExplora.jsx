@@ -1,21 +1,12 @@
 import React from "react";
 import "../../styles/category/ServiceList.css";
 
-const ServiceList = ({ servicios = [], busqueda = "", categoria = "" }) => {
-  const filtrados = servicios.filter((servicio) => {
-    const coincideCategoria = servicio.category === categoria;
-    const coincideBusqueda =
-      servicio.name.toLowerCase().includes(busqueda.toLowerCase()) ||
-      servicio.description.toLowerCase().includes(busqueda.toLowerCase());
-
-    return coincideCategoria && coincideBusqueda;
-  });
-
+const ServiceListExplora = ({ servicios = [] }) => {
   return (
     <div className="servicios-list container py-4">
-      {filtrados.length > 0 ? (
+      {servicios.length > 0 ? (
         <div className="row g-4">
-          {filtrados.map((servicio) => (
+          {servicios.map((servicio) => (
             <div className="col-md-4" key={servicio.id}>
               <div className="card h-100 shadow-sm">
                 {servicio.coverImg && (
@@ -44,11 +35,11 @@ const ServiceList = ({ servicios = [], busqueda = "", categoria = "" }) => {
         </div>
       ) : (
         <div className="text-center text-muted py-5">
-          <p>No se encontraron servicios para esta categoría.</p>
+          <p>No se encontraron servicios que coincidan con tus filtros.</p>
         </div>
       )}
     </div>
   );
 };
 
-export default ServiceList;
+export default ServiceListExplora;

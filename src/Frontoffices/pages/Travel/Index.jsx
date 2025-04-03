@@ -12,7 +12,7 @@ export default function Travel() {
   useEffect(() => {
     const cargarServicios = async () => {
       const data = await getAllProducts();
-      console.log("Servicios recibidos:", data); // 👈 esto es importante
+      console.log("Servicios recibidos:", data); 
       if (Array.isArray(data)) {
         setServicios(data);
       }
@@ -23,15 +23,27 @@ export default function Travel() {
 
   const filtrarServicios = () => {
     return servicios
-      .filter((s) => s.category_id === 5)
+      .filter((s) => s.category === "Viajar con ellos")
       .filter((s) =>
-        s.name.toLowerCase().includes(busqueda.toLowerCase()) ||
-        s.description.toLowerCase().includes(busqueda.toLowerCase())
+        s.name.toLowerCase().includes((filtros.busqueda || "").toLowerCase()) ||
+        s.description.toLowerCase().includes((filtros.busqueda || "").toLowerCase())
       )
       .filter((s) => {
         const min = filtros.precioMin ? parseFloat(filtros.precioMin) : 0;
         const max = filtros.precioMax ? parseFloat(filtros.precioMax) : Infinity;
         return s.price >= min && s.price <= max;
+      })
+      .filter((s) => {
+        if (filtros.provincias?.length > 0) {
+          return filtros.provincias.includes(s.province);
+        }
+        return true;
+      })
+      .filter((s) => {
+        if (filtros.mascotas?.length > 0) {
+          return filtros.mascotas.includes(s.pet);
+        }
+        return true;
       })
       .sort((a, b) => {
         if (filtros.orden === "precio-asc") return a.price - b.price;
@@ -68,7 +80,7 @@ export default function Travel() {
         <div className="col-lg-9 col-md-8">
           <ServiceList
             servicios={filtrarServicios()}
-            categoria={5}
+            categoria="Viajar con ellos"
             busqueda={busqueda}
           />
         </div>
