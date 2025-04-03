@@ -29,7 +29,7 @@ const Hero = () => {
             </p>
 
             {/* Carrusel de categorías */}
-            <div className="carousel-wrapper mt-4">
+            <div className="carousel-wrapper mt-4"style={{ overflow: "hidden" }}>
               <div className="carousel-track">
                 {categorias.map((cat, i) => (
                   <div
