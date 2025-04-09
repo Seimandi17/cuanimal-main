@@ -9,17 +9,61 @@ import 'swiper/css/autoplay';
 import { Navigation, Autoplay } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const provinciasEspaña = [
-  "Coruña", "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila",
-  "Badajoz", "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria",
-  "Castellón", "Ceuta", "Ciudad Real", "Córdoba", "Cuenca", "Girona",
-  "Granada", "Guadalajara", "Guipúzcoa", "Huelva", "Huesca", "Illes Balears",
-  "Jaén", "La Rioja", "Las Palmas", "León", "Lleida", "Lugo", "Madrid",
-  "Málaga", "Melilla", "Murcia", "Navarra", "Ourense", "Palencia",
-  "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia", "Sevilla",
-  "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid",
-  "Vizcaya", "Zamora", "Zaragoza"
+const provinciasConImagen = [
+  { nombre: "Coruña", imagen: "/img/provincias/coruna.jpg" },
+  { nombre: "Álava", imagen: "/img/provincias/alava.jpg" },
+  { nombre: "Albacete", imagen: "/img/provincias/albacete.jpg" },
+  { nombre: "Alicante", imagen: "/img/provincias/alicante.jpg" },
+  { nombre: "Almería", imagen: "/img/provincias/almeria.jpg" },
+  { nombre: "Asturias", imagen: "/img/provincias/asturias.jpg" },
+  { nombre: "Ávila", imagen: "/img/provincias/avila.jpg" },
+  { nombre: "Badajoz", imagen: "/img/provincias/badajoz.webp" },
+  { nombre: "Barcelona", imagen: "/img/provincias/barcelona.jpg" },
+  { nombre: "Burgos", imagen: "/img/provincias/burgos.jpg" },
+  { nombre: "Cáceres", imagen: "/img/provincias/caceres.jpg" },
+  { nombre: "Cádiz", imagen: "/img/provincias/cadiz.jpg" },
+  { nombre: "Cantabria", imagen: "/img/provincias/cantabria.jpg" },
+  { nombre: "Castellón", imagen: "/img/provincias/castellon.webp" },
+  { nombre: "Ceuta", imagen: "/img/provincias/ceuta.jpeg" },
+  { nombre: "Ciudad Real", imagen: "/img/provincias/ciudad-real.jpg" },
+  { nombre: "Córdoba", imagen: "/img/provincias/cordoba.avif" },
+  { nombre: "Cuenca", imagen: "/img/provincias/cuenca.jpeg" },
+  { nombre: "Girona", imagen: "/img/provincias/girona.jpg" },
+  { nombre: "Granada", imagen: "/img/provincias/granada.jpeg" },
+  { nombre: "Guadalajara", imagen: "/img/provincias/guadalajara.jpg" },
+  { nombre: "Guipúzcoa", imagen: "/img/provincias/guipuzcoa.jpg" },
+  { nombre: "Huelva", imagen: "/img/provincias/huelva.jpeg" },
+  { nombre: "Huesca", imagen: "/img/provincias/huesca.avif" },
+  { nombre: "Illes Balears", imagen: "/img/provincias/illes-balears.jpg" },
+  { nombre: "Jaén", imagen: "/img/provincias/jaen.jpg" },
+  { nombre: "La Rioja", imagen: "/img/provincias/la-rioja.jpg" },
+  { nombre: "Las Palmas", imagen: "/img/provincias/las-palmas.jpg" },
+  { nombre: "León", imagen: "/img/provincias/leon.avif" },
+  { nombre: "Lleida", imagen: "/img/provincias/lleida.avif" },
+  { nombre: "Lugo", imagen: "/img/provincias/lugo.jpg" },
+  { nombre: "Madrid", imagen: "/img/provincias/madrid.webp" },
+  { nombre: "Málaga", imagen: "/img/provincias/malaga.jpg" },
+  { nombre: "Melilla", imagen: "/img/provincias/melilla.jpg" },
+  { nombre: "Murcia", imagen: "/img/provincias/murcia.jpg" },
+  { nombre: "Navarra", imagen: "/img/provincias/navarra.avif" },
+  { nombre: "Ourense", imagen: "/img/provincias/ourense.jpeg" },
+  { nombre: "Palencia", imagen: "/img/provincias/palencia.avif" },
+  { nombre: "Pontevedra", imagen: "/img/provincias/pontevedra.jpeg" },
+  { nombre: "Salamanca", imagen: "/img/provincias/salamanca.jpg" },
+  { nombre: "Santa Cruz de Tenerife", imagen: "/img/provincias/santa-cruz-de-tenerife.jpg" },
+  { nombre: "Segovia", imagen: "/img/provincias/segovia.jpg" },
+  { nombre: "Sevilla", imagen: "/img/provincias/sevilla.jpg" },
+  { nombre: "Soria", imagen: "/img/provincias/soria.webp" },
+  { nombre: "Tarragona", imagen: "/img/provincias/tarragona.jpg" },
+  { nombre: "Teruel", imagen: "/img/provincias/teruel.jpeg" },
+  { nombre: "Toledo", imagen: "/img/provincias/toledo.avif" },
+  { nombre: "Valencia", imagen: "/img/provincias/valencia.jpg" },
+  { nombre: "Valladolid", imagen: "/img/provincias/valladolid.webp" },
+  { nombre: "Vizcaya", imagen: "/img/provincias/vizcaya.jpg" },
+  { nombre: "Zamora", imagen: "/img/provincias/zamora.avif" },
+  { nombre: "Zaragoza", imagen: "/img/provincias/zaragoza.avif" },
 ];
+
 
 const ListaProductos = ({ categoriaFiltrada = null, titulo = "Nuestros Servicios" }) => {
   const [productos, setProductos] = useState([]);
@@ -89,23 +133,23 @@ const ListaProductos = ({ categoriaFiltrada = null, titulo = "Nuestros Servicios
             992: { slidesPerView: 5 }
           }}
         >
-          {provinciasEspaña.map((prov) => (
-            <SwiperSlide key={prov}>
-              <div
-                className="prov-card text-center p-2 rounded shadow-sm"
-                onClick={() => redirigirProvincia(prov)}
-                style={{ cursor: "pointer", backgroundColor: "#f8f9fa" }}
-              >
-                <img
-                  src="/img/mapa-espana.jpg"
-                  alt={prov}
-                  className="img-fluid mb-1"
-                  style={{ width: "100%", height: "60px", objectFit: "cover", borderRadius: "8px" }}
-                />
-                <small className="text-muted">{prov}</small>
-              </div>
-            </SwiperSlide>
-          ))}
+        {provinciasConImagen.map((prov) => (
+          <SwiperSlide key={prov.nombre}>
+            <div
+              className="prov-card text-center p-2 rounded shadow-sm"
+              onClick={() => redirigirProvincia(prov.nombre)}
+              style={{ cursor: "pointer", backgroundColor: "#f8f9fa" }}
+            >
+              <img
+                src={prov.imagen}
+                alt={prov.nombre}
+                className="img-fluid mb-1"
+                style={{ width: "100%", height: "60px", objectFit: "cover", borderRadius: "8px" }}
+              />
+              <small className="text-muted">{prov.nombre}</small>
+            </div>
+          </SwiperSlide>
+        ))}
         </Swiper>
 
         {/* Botones de navegación con íconos */}

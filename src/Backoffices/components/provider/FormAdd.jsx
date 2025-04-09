@@ -130,7 +130,7 @@ const FormAgregarServicio = () => {
 
         <div>
           <label className="form-label">Tipo de Servicio</label>
-          <select name="category_id" defaultValue="" className="form-select" required>
+          <select name="category" defaultValue="" className="form-select" required>
           <option value="" disabled>Selecciona un tipo</option>
           {tiposServicios.map((tipo, index) => (
             <option key={index} value={index + 1}>

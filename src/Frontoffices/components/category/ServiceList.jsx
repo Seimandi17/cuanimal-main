@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/category/ServiceList.css";
+import { Link } from "react-router-dom";
 
 const ServiceList = ({ servicios = [], busqueda = "", categoria = "" }) => {
   const filtrados = servicios.filter((servicio) => {
@@ -34,9 +35,9 @@ const ServiceList = ({ servicios = [], busqueda = "", categoria = "" }) => {
                   <p className="small text-muted">
                     {servicio.city} – {servicio.provider_name || "Anónimo"}
                   </p>
-                  <button className="btn btn-outline-primary btn-sm w-100 mt-2">
+                  <Link to={`/servicio/${servicio.id}`} className="btn btn-outline-primary btn-sm w-100 mt-2">
                     Ver más
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

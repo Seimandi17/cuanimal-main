@@ -75,9 +75,9 @@ const ListaProveedores = () => {
             <tbody>
               {proveedoresPaginados.length > 0 ? (
                 proveedoresPaginados.map((prov) => (
-                  <tr key={prov.id}>
-                    <td>{prov.name} {prov.lastname}</td>
-                    <td>{prov.email}</td>
+                  <tr key={prov.user.id}>
+                    <td>{prov.user.name} {prov.user.lastName}</td>
+                    <td>{prov.user.email}</td>
                     <td>{prov.phone || "Sin teléfono"}</td>
                     <td>{prov.created_at?.split("T")[0]}</td>
                   </tr>

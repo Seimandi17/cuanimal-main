@@ -1,0 +1,46 @@
+.servicio-detalle h2 {
+    font-weight: 700;
+    color: #212529;
+  }
+  
+  .servicio-detalle p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .servicio-detalle .contact-form {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+  
+  .loading,
+  .error {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    color: #6c757d;
+  }
+  .servicio-detalle h2 {
+    color: #0d6efd;
+  }
+  
+  .servicio-detalle .img-fluid {
+    max-height: 300px;
+    object-fit: cover;
+  }
+    

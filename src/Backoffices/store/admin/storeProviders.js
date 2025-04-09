@@ -19,7 +19,7 @@ export async function getAllProviders() {
   try {
     const token = checkAuthAndRole(1); // Solo admin
 
-    const response = await fetch(`${BASE_URL}/providers`, {
+    const response = await fetch(`${BASE_URL}/listProviderAll`, {
       method: "GET",
       headers: {
         "Accept": "application/json",
