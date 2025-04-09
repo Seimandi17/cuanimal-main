@@ -1,14 +1,31 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import HeroSection from '../../components/category/HeroSection';
 import SearchFilters from '../../components/category/SearchFilters';
 import ServiceList from '../../components/category/ServiceListExplora';
 import { getAllProducts } from '../../../Backoffices/store/products/storeProducts';
 
+
 export default function Explorer() {
   const [servicios, setServicios] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [filtros, setFiltros] = useState({});
+  const location = useLocation();
 
+  // Leer provincia desde query param y aplicarla como filtro inicial
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const provinciaParam = params.get("provincia");
+
+    if (provinciaParam) {
+      setFiltros((prev) => ({
+        ...prev,
+        provincias: [provinciaParam]
+      }));
+    }
+  }, [location.search]);
+
+  // Cargar todos los servicios
   useEffect(() => {
     const cargarServicios = async () => {
       const data = await getAllProducts();
@@ -18,6 +35,7 @@ export default function Explorer() {
     cargarServicios();
   }, []);
 
+  // Aplicar filtros
   const filtrarServicios = () => {
     return servicios
       .filter((s) =>
@@ -31,8 +49,7 @@ export default function Explorer() {
       )
       .filter((s) =>
         s.name.toLowerCase().includes((filtros.busqueda || "").toLowerCase()) ||
-      s.description.toLowerCase().includes((filtros.busqueda || "").toLowerCase())
-      
+        s.description.toLowerCase().includes((filtros.busqueda || "").toLowerCase())
       )
       .filter((s) => {
         const min = filtros.precioMin ? parseFloat(filtros.precioMin) : 0;
@@ -62,6 +79,7 @@ export default function Explorer() {
             <SearchFilters
               onFiltrosChange={(f) => setFiltros(f)}
               onBuscar={(b) => setBusqueda(b)}
+              valoresIniciales={filtros} 
             />
           </div>
 
@@ -74,6 +92,7 @@ export default function Explorer() {
     </div>
   );
 }
+
 export const PageInfo = {
   path: "explorer",
   title: "Explorar",

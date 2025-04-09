@@ -12,7 +12,7 @@ import Paseo from "./pages/Paseo";
 import Proveedores from "./pages/Provider";
 import Transport from "./pages/Transport";
 import Travel from "./pages/Travel";
-
+import ServiceDetails from "./pages/Service/ServiceDetails";
 
 export const RoutesFrontoffices = [
     <Route key={'/frontoffices'} path="/" element={<PageLayout/>}>
@@ -28,6 +28,7 @@ export const RoutesFrontoffices = [
       <Route path="proveedores" element={<Proveedores />} />
       <Route path="transporte-de-mascotas" element={<Transport />} />
       <Route path="viajar-con-ellos" element={<Travel />} />
+      <Route path= "/servicio/:id" element={<ServiceDetails />} />
       <Route path="*" element={<h1> 404 </h1>} />
     </Route>
 ];

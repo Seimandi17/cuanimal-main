@@ -204,3 +204,14 @@ export async function changeStatus(id, newStatus) {
     return { success: false, message: error.message };
   }
 }
+export async function getProductById(id) {
+  try {
+    const response = await fetch(`${BASE_URL}/products/${id}`);
+    if (!response.ok) throw new Error("No se pudo obtener el servicio");
+    const json = await response.json();
+    return json.data;
+  } catch (error) {
+    console.error("Error al obtener el servicio:", error.message);
+    return null;
+  }
+}
